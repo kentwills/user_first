@@ -5,6 +5,7 @@ import urllib
 
 sys.path.insert(1, os.path.join(os.path.abspath('.'), 'lib'))
 
+import httplib2
 from flask import request
 from flask import Flask
 from flask import render_template
@@ -14,7 +15,7 @@ from google.appengine.ext import ndb
 
 import jinja2
 
-from apiclient import discovery
+from googleapiclient import discovery
 from oauth2client import appengine
 from oauth2client import client
 from google.appengine.api import memcache
@@ -51,12 +52,13 @@ href="https://code.google.com/apis/console">APIs Console</a>.
 </p>
 """ % CLIENT_SECRETS
 
-#http = httplib2.Http(memcache)
-#service = discovery.build("plus", "v1", http=http)
-#decorator = appengine.oauth2decorator_from_clientsecrets(
-#    CLIENT_SECRETS,
-#    scope='https://www.googleapis.com/auth/plus.me',
-#    message=MISSING_CLIENT_SECRETS_MESSAGE)
+http = httplib2.Http(memcache)
+service = discovery.build("plus", "v1", http=http)
+decorator = appengine.oauth2decorator_from_clientsecrets(
+    CLIENT_SECRETS,
+    scope='https://www.googleapis.com/auth/plus.me',
+    message=MISSING_CLIENT_SECRETS_MESSAGE,
+)
 
 def guestbook_key(guestbook_name=DEFAULT_GUESTBOOK_NAME):
     """Constructs a Datastore key for a Guestbook entity.
