@@ -1,9 +1,12 @@
 import cgi
 import os
+import sys
 import urllib
 
-from flask import Flask
+sys.path.insert(1, os.path.join(os.path.abspath('.'), 'lib'))
+
 from flask import request
+from flask import Flask
 from flask import render_template
 from flask import redirect
 from google.appengine.api import users
