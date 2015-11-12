@@ -13,7 +13,7 @@ handlers:
   static_dir: bootstrap
 
 - url: /css
-  static_dir: static/css 
+  static_dir: static/css
 
 - url: /js
   static_dir: static/js
