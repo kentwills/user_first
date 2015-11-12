@@ -1,30 +1,325 @@
 <!DOCTYPE html>
 {% extends "base_template.html" %}
-    {% block content %}
-        {% for greeting in greetings %}
-            {% if greeting.author %}
-                <b>{{ greeting.author.email }}
-                    {% if user and user.user_id() == greeting.author.identity %}
-                        (You)
-                    {% endif %}
-                </b> wrote:
-                    {% else %}
-                    An anonymous person wrote:
-            {% endif %}
-            <blockquote>{{ greeting.content }}</blockquote>
-        {% endfor %}
+{% block content %}
+<div class="container-fluid banner text-center" id="banner"> 
+    <div class="row">
+    <div class="col-md-12 line">
+        <div class="tablebox">
+        <div class="banner-text" id="bannertext">
+            <h1 class="hostyle" id="heads">User First</h1>
+            <p class="pstyle" id="red">TOGETHER WE MAKE GREAT PRODUCTS</p>
+            <p class="pstyle">Become a part of product desicion making process and earn Eat24 coupons!</p>
+            <a href="#gallery" class="page-scroll arrow"><i class="fa fa-angle-down"></i></a> 
+          </div>
+      </div>
+      </div>
+  </div>
+  </div>
+<div class="navbar menubar" id="menu">
+    <div class="container">
+    <div class="navbar-header"> 
+    	<button type="button" class="navbar-toggle menu-button" data-toggle="collapse" data-target="#myNavbar">
+			<span class="glyphicon glyphicon-align-justify"></span>
+		 </button>
+    <a class="navbar-brand logo" href="#banner">User First</a> 
+    </div>
+    <div>
+    	<nav class="collapse navbar-collapse" id="myNavbar" role="navigation">
+        <ul class="nav navbar-nav navbar-right navstyle">
+        <li><a href="#banner" class="page-scroll active">Home</a></li>
+        <li><a href="#gallery" class="page-scroll">Tests</a></li>
+<!--         <li><a href="#about" class="page-scroll">Achievements</a></li> -->
+        <li><a href="#join" class="page-scroll">Log in</a></li>
+      </ul>
+      </nav>
+      </div>
+  </div>
+  </div>
+<div class="gallery" id="gallery">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="alldesc">
+            <div class="col-md-6 col-sm-6 col-xs-12 centertext">
+            <h2>upcoming user tests</h2>
+          </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+            <p class="desc">Join now to make an influence on our next version products.</p>
+          </div>
+          </div>
+      </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="sorting pull-left">
+            <div class="filter pull-left filimg" data-filter="all">Show All</div>
+            <div class="filter pull-left filimg" data-filter=".category-1">Eat24</div>
+            <div class="filter pull-left filimg" data-filter=".category-2">Yelp</div>
+            <div class="filter pull-left filimg" data-filter=".category-3">SeatMe</div>
+<!--             <div class="filter pull-left filimg" data-filter=".category-4">Completed</div> -->
+          </div>
+      </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="galleryimg" id="galleryimg">
+            <div class="grid mix category-2 col-md-4 col-sm-6 col-xs-6" data-myorder="1">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash004.jpg" alt="img13"/>
+						<figcaption>
+							<h2>Glowing <span>Sun<span></h2>
+							<p>Join now</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+           <div class="grid mix category-1 col-md-4 col-sm-6 col-xs-6" data-myorder="2">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash009.jpg" alt="img13"/>
+						<figcaption>
+							<h2>High <span>Sky</span></h2>
+							<p>Join now</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+           <div class="grid mix category-3 col-md-4 col-sm-6 col-xs-6" data-myorder="3">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash0010.jpg" alt="img13"/>
+						<figcaption>
+							<h2>Darkest <span>Rain</span></h2>
+							<p>Join now</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+           <div class="grid mix category-4 col-md-4 col-sm-6 col-xs-6" data-myorder="4">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash002.jpg" alt="img13"/>
+						<figcaption>
+							<h2>Beautiful <span>Heart</span></h2>
+							<p>Join now</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+           <div class="grid mix category-2 col-md-4 col-sm-6 col-xs-6" data-myorder="5">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash006.jpg" alt="img13"/>
+						<figcaption>
+							<h2>Cute <span>Imagine</span></h2>
+							<p>Join now</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+           <div class="grid mix category-1 col-md-4 col-sm-6 col-xs-6" data-myorder="6">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash004.jpg" alt="img13"/>
+						<figcaption>
+							<h2>Glowing <span>Sun</span></h2>
+							<p>Join now</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+           <div class="grid mix category-2 col-md-4 col-sm-6 col-xs-6" data-myorder="7">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash0010.jpg" alt="img13"/>
+						<figcaption>
+							<h2>Darkest <span>Rain</span></h2>
+							<p>Join now</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+           <div class="grid mix category-1 col-md-4 col-sm-6 col-xs-6" data-myorder="8">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash002.jpg" alt="img13"/>
+						<figcaption>
+							<h2>Beautiful <span>Heart</span></h2>
+							<p>Join now</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+           <div class="grid mix category-1 col-md-4 col-sm-6 col-xs-6" data-myorder="9">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash004.jpg" alt="img13"/>
+						<figcaption>
+							<h2>Glowing <span>Sun</span></h2>
+							<p>Join now</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+      </div>
+      </div>
+  </div>
+  </div>
+  </div>
+<div class="notes">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-9 col-sm-10 col-12">
+        <p>Not found what you are looking for?</p>
+      </div>
+        <div class="col-md-3 col-sm-2 col-xs-12 text-center">
+        <button>Create NEW</button>
+      </div>
+      </div>
+  </div>
+  </div>
+<footer class="foot"> 
+	<div class="container">
+    	<div class="row">
+        	<div class="col-md-12 col-sm-12 col-xs-12">
+            	<h4 class="foot-logo">User First</h4>
+            </div>
+            <div class="col-md-12 col-xs-12 col-sm-12 text-center">
+            	<p class="foot-text">Copyrights &copy; 2015 </p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="js/bootstrap.min.js"></script> 
+<script src="js/typed.js" type="text/javascript"></script> 
+<script src="js/jquery.mixitup.js" type="text/javascript"></script> 
+<script type="text/javascript" src="js/jquery.countTo.js"></script> 
+<script type="text/javascript" src="js/jquery.waypoints.min.js"></script> 
+<script type="text/javascript" src="js/jquery.quovolver.js"></script>
+<script>
+$(function(){
+    var windowH = $(window).height();
+    var bannerH = $('#banner').height();
+    if(windowH > bannerH) {                            
+        $('#banner').css({'height':($(window).height() - 68)+'px'});
+		$('#bannertext').css({'height':($(window).height() - 68)+'px'});
+    }                                                                               
+    $(window).resize(function(){
+        var windowH = $(window).height();
+        var bannerH = $('#banner').height();
+        var differenceH = windowH - bannerH;
+        var newH = bannerH + differenceH;
+        var truecontentH = $('#bannertext').height();
+        if(windowH < truecontentH) {
+            $('#banner').css({'height': (newH - 68)+'px'});
+			$('#bannertext').css({'height': (newH - 68)+'px'});
+        }
+		if(windowH > truecontentH) {
+            $('#banner').css({'height': (newH - 68)+'px'});
+			$('#bannertext').css({'height': (newH - 68)+'px'});
+        }
 
-        <form action="/sign?guestbook_name={{ guestbook_name }}" method="post">
-            <div><textarea name="content" rows="3" cols="60"></textarea></div>
-            <div><input type="submit" value="Sign Guestbook"></div>
-        </form>
+    })          
+});
 
-        <hr>
 
-        <form>Guestbook name:
-            <input value="{{ guestbook_name }}" name="guestbook_name">
-            <input type="submit" value="switch">
-        </form>
+	
+	
+	
+	$(function(){
+  $('#galleryimg').mixItUp();
+});
+	/*$('.timer').each(count);*/
+	jQuery(function ($) {
+      // custom formatting example
+      $('.timer').data('countToOptions', {
+        formatter: function (value, options) {
+          return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+        }
+      });
+ 
+      // start all the timers
+      $('#gallery').waypoint(function() {
+    $('.timer').each(count);
+	});
+ 
+      function count(options) {
+        var $this = $(this);
+        options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+        $this.countTo(options);
+      }
+    });
+	
+	
+	 $('.quotes').quovolver({
+      equalHeight   : true
+    });
+	
+	
+	</script>
+<script>
 
-        <a href="{{ url|safe }}">{{ url_linktext }}</a>
-    {% endblock %}
+	$(document).ready(function () {
+
+		$(document).on("scroll", onScroll);
+
+ 
+
+		$('a[href^="#"]').on('click', function (e) {
+
+			e.preventDefault();
+
+			$(document).off("scroll");
+
+ 
+
+			$('a').each(function () {
+
+				$(this).removeClass('active');
+
+			})
+
+			$(this).addClass('active');
+
+ 
+
+			var target = this.hash;
+
+			$target = $(target);
+
+			$('html, body').stop().animate({
+
+				'scrollTop': $target.offset().top
+
+			}, 500, 'swing', function () {
+
+				window.location.hash = target;
+
+				$(document).on("scroll", onScroll);
+
+			});
+
+		});
+
+	});
+
+ 
+
+	function onScroll(event){
+
+		var scrollPosition = $(document).scrollTop();
+
+		$('.nav li a').each(function () {
+
+			var currentLink = $(this);
+
+			var refElement = $(currentLink.attr("href"));
+
+			if (refElement.position().top <= scrollPosition && refElement.position().top + refElement.height() > scrollPosition) {
+
+				$('.nav li a').removeClass("active");
+
+				currentLink.addClass("active");
+
+			}
+
+			else{
+
+				currentLink.removeClass("active");
+
+			}
+
+		});
+
+	}
+
+</script>
+{% endblock %}
