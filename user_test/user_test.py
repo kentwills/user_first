@@ -65,6 +65,11 @@ def guestbook_key(guestbook_name=DEFAULT_GUESTBOOK_NAME):
     """
     return ndb.Key('Guestbook', guestbook_name)
 
+@app_route('/projects')
+def projects():
+    #replace index.html with projects.html
+    return render_template('index.html')
+
 
 @app.route('/')
 def main_page():
