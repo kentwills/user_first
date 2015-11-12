@@ -11,6 +11,17 @@ from google.appengine.ext import ndb
 
 import jinja2
 
+from apiclient import discovery
+from oauth2client import appengine
+from oauth2client import client
+from google.appengine.api import memcache
+
+JINJA_ENVIRONMENT = jinja2.Environment(
+    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
+    extensions=['jinja2.ext.autoescape'],
+    autoescape=True,
+)
+
 DEFAULT_GUESTBOOK_NAME = 'default_guestbook'
 app = Flask(__name__)
 app.debug = True
