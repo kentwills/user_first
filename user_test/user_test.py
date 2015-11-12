@@ -1,11 +1,18 @@
 import os
 import sys
 
-from flask import Flask
+import httplib2
 import jinja2
+import memcache
+from flask import Flask
 from routes.sign import sign
 from routes.main import main
 #from routes.project import project
+
+from googleapiclient import discovery
+from oauth2client import appengine
+from oauth2client import client
+from google.appengine.api import memcache
 
 
 sys.path.insert(1, os.path.join(os.path.abspath('.'), 'lib'))
