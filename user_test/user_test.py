@@ -12,6 +12,7 @@ from flask import render_template
 from flask import redirect
 from google.appengine.api import users
 from google.appengine.ext import ndb
+import models
 
 import jinja2
 
@@ -67,48 +68,10 @@ def guestbook_key(guestbook_name=DEFAULT_GUESTBOOK_NAME):
     """
     return ndb.Key('Guestbook', guestbook_name)
 
-
-class Author(ndb.Model):
-    """Sub model for representing an author."""
-    identity = ndb.StringProperty(indexed=False)
-    email = ndb.StringProperty(indexed=False)
-
-
-class Greeting(ndb.Model):
-    """A main model for representing an individual Guestbook entry."""
-    author = ndb.StructuredProperty(Author)
-    content = ndb.StringProperty(indexed=False)
-    date = ndb.DateTimeProperty(auto_now_add=True)
-
-
-class Attributes(ndb.Model):
-    attribute = ndb.StringProperty()
-
-
-class User(ndb.Model):
-    """Model for our Users"""
-    token = ndb.IntegerProperty()
-    admin = ndb.IntegerProperty()
-    attributes = ndb.KeyProperty(kind="Attributes")
-
-
-class Project(ndb.Model):
-    """PM projects"""
-    owner = ndb.KeyProperty(kind="User")
-    description = ndb.StringProperty()
-    date_time = ndb.DateTimeProperty()
-    location = ndb.StringProperty()
-    status = ndb.IntegerProperty()
-
-
-class ProjectUsers(ndb.Model):
-    project = ndb.KeyProperty(kind="Project")
-    user = ndb.KeyProperty(kind="User")
-    status = ndb.IntegerProperty()
-
-
-class Team(ndb.Model):
-    type = ndb.StringProperty()
+@app_route('/projects')
+def projects():
+    #replace index.html with projects.html
+    return render_template('index.html')
 
 
 @app.route('/')
@@ -128,8 +91,8 @@ def main_page():
     """
     guestbook_name = request.args.get('guestbook_name',
                                       DEFAULT_GUESTBOOK_NAME)
-    greetings_query = Greeting.query(
-        ancestor=guestbook_key(guestbook_name)).order(-Greeting.date)
+    greetings_query = models.Greeting.query(
+        ancestor=guestbook_key(guestbook_name)).order(-models.Greeting.date)
     greetings = greetings_query.fetch(10)
 
     user = users.get_current_user()
@@ -167,10 +130,10 @@ def guestbook():
     # ~1/second.
     guestbook_name = request.args.get('guestbook_name',
                                       DEFAULT_GUESTBOOK_NAME)
-    greeting = Greeting(parent=guestbook_key(guestbook_name))
+    greeting = models.Greeting(parent=guestbook_key(guestbook_name))
 
     if users.get_current_user():
-        greeting.author = Author(
+        greeting.author = models.Author(
                 identity=users.get_current_user().user_id(),
                 email=users.get_current_user().email())
 
