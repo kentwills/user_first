@@ -3,7 +3,6 @@ import sys
 
 import httplib2
 import jinja2
-import memcache
 from flask import Flask
 from routes.sign import sign
 from routes.main import main
@@ -17,11 +16,6 @@ from google.appengine.api import memcache
 
 sys.path.insert(1, os.path.join(os.path.abspath('.'), 'lib'))
 
-JINJA_ENVIRONMENT = jinja2.Environment(
-    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
-    extensions=['jinja2.ext.autoescape'],
-    autoescape=True,
-)
 
 app = Flask(__name__)
 app.register_blueprint(main)
@@ -56,19 +50,14 @@ http = httplib2.Http(memcache)
 
 service = discovery.build("plus", "v1", http=http)
 
-decorator = appengine.oauth2decorator_from_clientsecrets(
+"""
+oauth2_decorator = appengine.oauth2decorator_from_clientsecrets(
     CLIENT_SECRETS,
     scope='https://www.googleapis.com/auth/plus.me',
     message=MISSING_CLIENT_SECRETS_MESSAGE,
 )
 
-
-@app.route('/projects')
-def projects():
-    #replace index.html with projects.html
-    return render_template('index.html')
-
-
 @app.route(oauth2_decorator.callback_path)
 def authorize_user():
     return oauth2_decorator.callback_handler()
+"""

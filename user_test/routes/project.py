@@ -14,5 +14,5 @@ project = Blueprint('project', __name__,
                  template_folder='templates')
 
 @project.route('/project')
-def project():
+def main():
     return render_template('old_index.html')

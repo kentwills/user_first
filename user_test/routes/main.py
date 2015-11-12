@@ -17,20 +17,20 @@ main = Blueprint('main', __name__,
                  template_folder='templates')
 
 
-
 @main.route('/')
 def main_page():
+    """
     try:
       http = oauth2_decorator.http()
       user = service.people().get(userId='me').execute(http=http)
-      text = 'Hello, %s!' % user['displayName']
+      text = 'Hello, %s!' % "yay"
 
       #template = JINJA_ENVIRONMENT.get_template('welcome.html')
       #self.response.write(template.render({'text': text }))
       return render_template('welcome.html', text=text)
     except client.AccessTokenRefreshError:
       self.redirect('/')
-
+    """
     """
     if not oauth2_decorator.has_credentials():
         redirect(oauth2_decorator.authorize_url())

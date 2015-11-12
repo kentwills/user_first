@@ -4,3 +4,4 @@ user_test/index.yaml
 client_secrets.json
 .idea/
 user_test/lib/
+venv
