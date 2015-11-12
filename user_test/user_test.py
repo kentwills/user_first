@@ -13,7 +13,6 @@ from oauth2client import appengine
 from oauth2client import client
 from google.appengine.api import memcache
 
-
 sys.path.insert(1, os.path.join(os.path.abspath('.'), 'lib'))
 
 
@@ -57,7 +56,12 @@ oauth2_decorator = appengine.oauth2decorator_from_clientsecrets(
     message=MISSING_CLIENT_SECRETS_MESSAGE,
 )
 
+<<<<<<< 0889ffa6a5000248c8e1f477383449cd03eb05d1
 @app.route(oauth2_decorator.callback_path)
 def authorize_user():
     return oauth2_decorator.callback_handler()
 """
+@app.route(oauth2_decorator.callback_path)
+def authorize_user():
+    return oauth2_decorator.callback_handler()
+
