@@ -54,12 +54,13 @@
 
                     <label class="text-uppercase">Product</label>
                     <br />
-                    <label class="radio-inline"><input type="radio" name="product_type" value="Eat24" checked>Eat24</label>
-                    <label class="radio-inline"><input type="radio" name="product_type" value="YelpBiz">Yelp Biz</label>
-                    <label class="radio-inline"><input type="radio" name="product_type" value="YelpConsumer">Yelp Consumer</label>
-                    <label class="radio-inline"><input type="radio" name="product_type" value="Seatme">Seatme</label>
-
-
+                    {% for team in team_list %}
+                    <label class="radio-inline"><input type="radio" name="product_type" value="{{ team.key.id() }}"
+                        {% if loop.first %} 
+                        checked
+                        {% endif %}
+                        >{{ team.type }}</label>
+                    {% endfor %}
 
                     <!-- Radio buttons -->
 
