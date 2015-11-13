@@ -1,8 +1,8 @@
 from google.appengine.ext import ndb
 
 
-class Attributes(ndb.Model):
-    attribute = ndb.StringProperty()
+class Attribute(ndb.Model):
+    name = ndb.StringProperty()
 
 
 class User(ndb.Model):
@@ -15,6 +15,8 @@ class User(ndb.Model):
 class Project(ndb.Model):
     """PM projects"""
     owner = ndb.KeyProperty(kind="User")
+    team = ndb.KeyProperty(kind="Team")
+    title = ndb.StringProperty()
     description = ndb.StringProperty()
     date_time = ndb.DateTimeProperty()
     location = ndb.StringProperty()

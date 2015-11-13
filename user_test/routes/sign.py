@@ -16,6 +16,7 @@ sign = Blueprint('sign', __name__,
 
 DEFAULT_GUESTBOOK_NAME = 'default_guestbook'
 
+
 @sign.route('/sign', methods=['POST'])
 def guestbook():
     # We set the same parent key on the 'Greeting' to ensure each

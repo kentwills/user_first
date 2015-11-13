@@ -2,17 +2,15 @@ import os
 import sys
 
 import httplib2
-import jinja2
 from flask import Flask
-from flask import render_template
+from googleapiclient import discovery
+from google.appengine.api import memcache
+
+import upload
 from routes.sign import sign
 from routes.main import main
 from routes.project import project
 
-from googleapiclient import discovery
-from oauth2client import appengine
-from oauth2client import client
-from google.appengine.api import memcache
 
 sys.path.insert(1, os.path.join(os.path.abspath('.'), 'lib'))
 
@@ -22,6 +20,10 @@ app.register_blueprint(main)
 app.register_blueprint(sign)
 app.register_blueprint(project)
 app.debug = True
+
+#upload.run()
+
+
 
 # We set a parent key on the 'Greetings' to ensure that they are all
 # in the same entity group. Queries across the single entity group
