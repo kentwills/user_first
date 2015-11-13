@@ -1,6 +1,7 @@
 from flask import Blueprint
 from flask import render_template
 from flask import request
+from flask import session
 import models
 from google.appengine.ext import ndb
 from models import User
