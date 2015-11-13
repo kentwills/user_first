@@ -1,7 +1,6 @@
 import os
 import httplib2
 
-import flask
 from googleapiclient import discovery
 from oauth2client import appengine
 #from google.appengine.api import memcache
