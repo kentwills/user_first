@@ -2,175 +2,191 @@
 {% block content %}
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed">
-                <span class="sr-only">Toggle navigation</span>
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed">
+            <span class="sr-only">Toggle navigation</span>
+        </button>
+        <a class="navbar-brand" href="#"><img src="/img/yelp_ux_logo.jpg"
+                                              width="100"/></a>
+    </div>
+    <div class="navbar-collapse collapse navbar-content">
+        <div class="navbar-form navbar-right banner-text">
+            <button class="btn btn-success navbar-button" data-toggle="modal" data-target="#myModal1">Create New Test!
             </button>
-            <a class="navbar-brand" href="#"><img src="/img/yelp_ux_logo.jpg"
-                width="100" /></a>
-        </div>
-        <div class="navbar-collapse collapse navbar-content">
-            <div class="navbar-form navbar-right banner-text">
-                <button class="btn btn-success navbar-button" data-toggle="modal" data-target="#myModal1">Create New Test!</button>
 
                 <span class="navbar-button"><img src="/img/bowtie_cat.jpeg" class="img-circle"
-                    width="50px" /></span>
+                                                 width="50px"/></span>
 
-                <span><a href="#">Logout</a></span>
+            <span><a href="#">Logout</a></span>
+        </div>
+    </div>
+</nav>
+
+<div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Create New Test</h4>
+            </div>
+            <div class="modal-body">
+                <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-link" data-dismiss="modal">Cancel</button>
             </div>
         </div>
-        </nav>
-    <div class="modal fade" id="myModal1" role="dialog">
-                    <div class="modal-dialog">
 
-                      <!-- Modal content-->
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-                          <h4 class="modal-title">Create New Test</h4>
-                        </div>
-                        <div class="modal-body">
-                          <p>Some text in the modal.</p>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-link" data-dismiss="modal">Cancel</button>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
-    {% block belowNavBar %}
+    </div>
+</div>
+{% block belowNavBar %}
 <!-- Modal -->
 
 
 <div class="gallery" id="gallery">
     <div class="container">
 
-    <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="alldesc">
+        <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-            <p class="desc text-center">UPCOMING USER TESTS</p>
-          </div>
-          </div>
-      </div>
-        <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="sorting text-center">
-            <button class="filter filimg" data-filter="all">All</button>
-
-            {% for team in team_list %}
-                <button class="filter filimg" data-filter={{"." + team.type}}>{{ team.type }}</button>
-            {% endfor %}
-
-          </div>
-      </div>
-        <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="galleryimg" id="galleryimg">
-
-            {% for project in project_list %}
-            <div class="grid mix {{ project.team.type }} col-md-4 col-sm-6 col-xs-6" data-myorder="1">
-
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h2>{{ project.title }}</h2>
-                    </div>
-                    <div class="panel-body">
-                        <p class="lead">Homepage Wireframe prototype test</p>
-                        <p>{{ project.date }}<br>
-                            {{project.location}}</p>
-                        <p><a href="#">Click to learn more</a></p>
+                <div class="alldesc">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <p class="desc text-center">UPCOMING USER TESTS</p>
                     </div>
                 </div>
             </div>
-            {% endfor %}
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="sorting text-center">
+                    <button class="filter filimg" data-filter="all">All</button>
 
+                    {% for team in team_list %}
+                    <button class="filter filimg" data-filter={{"." + team.type}}>{{ team.type }}</button>
+                    {% endfor %}
 
-            <div class="grid mix category-1 col-md-4 col-sm-6 col-xs-6" data-myorder="1">
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="galleryimg" id="galleryimg">
+
+                    {% for project in project_list %}
+                    <div class="grid mix {{ project.team.type }} col-md-4 col-sm-6 col-xs-6" data-myorder="1">
 
                         <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h2>EAT24</h2>
-            </div>
-            <div class="panel-body">
-                            <p class="lead">Homepage Wireframe prototype test</p>
-              <p>Wednesday, November 23, 9am<br>
-                Soccer Field @ 13 Floor</p>
-                            <p><a href="#">Click to learn more</a></p>
+                            <div class="panel-heading">
+                                <h2>{{ project.title }}</h2>
+                            </div>
+                            <div class="panel-body">
+                                <p class="lead">Homepage Wireframe prototype test</p>
+
+                                <p>{{ project.date }}<br>
+                                    {{project.location}}</p>
+
+                                <p><a href="#">Click to learn more</a></p>
+                            </div>
                         </div>
-            </div>
+                    </div>
+                    {% endfor %}
 
-          </div>
-           <div class="grid mix category-2 col-md-4 col-sm-6 col-xs-6" data-myorder="2">
-                    <div class="panel panel-default">
-            <div class="panel-heading">
-              <h2>YELP</h2>
-            </div>
-            <div class="panel-body">
-              <p class="lead">Homepage Wireframe prototype test</p>
-              <p>Wednesday, November 23, 9am<br>
-                Soccer Field @ 13 Floor</p>
-              <p><a href="#">Click to learn more</a></p>
-            </div>
-            </div>
-          </div>
-           <div class="grid mix category-3 col-md-4 col-sm-6 col-xs-6" data-myorder="3">
-                    <div class="panel panel-default">
-            <div class="panel-heading">
-              <h2>SEATME</h2>
-            </div>
-            <div class="panel-body">
-              <p class="lead">Homepage Wireframe prototype test</p>
-              <p>Wednesday, November 23, 9am<br>
-                Soccer Field @ 13 Floor</p>
-              <p><a href="#">Click to learn more</a></p>
-            </div>
-            </div>
-          </div>
-           <div class="grid mix category-1 col-md-4 col-sm-6 col-xs-6" data-myorder="4">
-                    <div class="panel panel-default">
-            <div class="panel-heading">
-              <h2>EAT24</h2>
-            </div>
-            <div class="panel-body">
-              <p class="lead">Homepage Wireframe prototype test</p>
-              <p>Wednesday, November 23, 9am<br>
-                Soccer Field @ 13 Floor</p>
-              <p><a href="#">Click to learn more</a></p>
-            </div>
-            </div>
-          </div>
-           <div class="grid mix category-2 col-md-4 col-sm-6 col-xs-6" data-myorder="5">
-                    <div class="panel panel-default">
-            <div class="panel-heading">
-              <h2>YELP</h2>
-            </div>
-            <div class="panel-body">
-              <p class="lead">Homepage Wireframe prototype test</p>
-              <p>Wednesday, November 23, 9am<br>
-                Soccer Field @ 13 Floor</p>
-              <p><a href="#">Click to learn more</a></p>
-            </div>
-            </div>
-          </div>
-           <div class="grid mix category-3 col-md-4 col-sm-6 col-xs-6" data-myorder="6">
-                    <div class="panel panel-default">
-            <div class="panel-heading">
-              <h2>SEATME</h2>
-            </div>
-            <div class="panel-body">
-              <p class="lead">Homepage Wireframe prototype test</p>
-              <p>Wednesday, November 23, 9am<br>
-                Soccer Field @ 13 Floor</p>
-              <p><a href="#">Click to learn more</a></p>
-            </div>
-            </div>
-          </div>
 
-      </div>
-      </div>
-  </div>
-  </div>
-  </div>
+                    <div class="grid mix category-1 col-md-4 col-sm-6 col-xs-6" data-myorder="1">
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2>EAT24</h2>
+                            </div>
+                            <div class="panel-body">
+                                <p class="lead">Homepage Wireframe prototype test</p>
+
+                                <p>Wednesday, November 23, 9am<br>
+                                    Soccer Field @ 13 Floor</p>
+
+                                <p><a href="#">Click to learn more</a></p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="grid mix category-2 col-md-4 col-sm-6 col-xs-6" data-myorder="2">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2>YELP</h2>
+                            </div>
+                            <div class="panel-body">
+                                <p class="lead">Homepage Wireframe prototype test</p>
+
+                                <p>Wednesday, November 23, 9am<br>
+                                    Soccer Field @ 13 Floor</p>
+
+                                <p><a href="#">Click to learn more</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid mix category-3 col-md-4 col-sm-6 col-xs-6" data-myorder="3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2>SEATME</h2>
+                            </div>
+                            <div class="panel-body">
+                                <p class="lead">Homepage Wireframe prototype test</p>
+
+                                <p>Wednesday, November 23, 9am<br>
+                                    Soccer Field @ 13 Floor</p>
+
+                                <p><a href="#">Click to learn more</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid mix category-1 col-md-4 col-sm-6 col-xs-6" data-myorder="4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2>EAT24</h2>
+                            </div>
+                            <div class="panel-body">
+                                <p class="lead">Homepage Wireframe prototype test</p>
+
+                                <p>Wednesday, November 23, 9am<br>
+                                    Soccer Field @ 13 Floor</p>
+
+                                <p><a href="#">Click to learn more</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid mix category-2 col-md-4 col-sm-6 col-xs-6" data-myorder="5">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2>YELP</h2>
+                            </div>
+                            <div class="panel-body">
+                                <p class="lead">Homepage Wireframe prototype test</p>
+
+                                <p>Wednesday, November 23, 9am<br>
+                                    Soccer Field @ 13 Floor</p>
+
+                                <p><a href="#">Click to learn more</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid mix category-3 col-md-4 col-sm-6 col-xs-6" data-myorder="6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2>SEATME</h2>
+                            </div>
+                            <div class="panel-body">
+                                <p class="lead">Homepage Wireframe prototype test</p>
+
+                                <p>Wednesday, November 23, 9am<br>
+                                    Soccer Field @ 13 Floor</p>
+
+                                <p><a href="#">Click to learn more</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.mixitup.js" type="text/javascript"></script>
 <script type="text/javascript" src="js/jquery.quovolver.js"></script>
@@ -207,8 +223,9 @@
     });
 
 
-    </script>
-    <script>
+
+</script>
+<script>
 
     $(document).ready(function () {
 
@@ -284,6 +301,7 @@
 
     }
 
-    </script>
-    {% endblock %}
+
+</script>
+{% endblock %}
 {% endblock %}
