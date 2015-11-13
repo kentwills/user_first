@@ -5,9 +5,6 @@ from oauth2client import client
 from flask import Blueprint, render_template
 
 
-DEFAULT_GUESTBOOK_NAME = 'default_guestbook'
-
-
 main = Blueprint('main', __name__, template_folder='templates')
 
 
