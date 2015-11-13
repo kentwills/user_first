@@ -13,5 +13,6 @@ def login_page():
         CLIENT_SECRETS,
         scope='https://www.googleapis.com/auth/plus.me',
         redirect_uri= flask.url_for('goog_auth_response.goog_auth_response_page', _external=True),
+        login_hint='yelp.com',
     )
     return redirect(flow.step1_get_authorize_url())

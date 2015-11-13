@@ -14,6 +14,7 @@ from googleapiclient import discovery
 from gplus_oauth import CLIENT_SECRETS
 from oauth2client import client
 
+from models import Team
 from models import User
 
 
@@ -26,6 +27,7 @@ def goog_auth_response_page():
         CLIENT_SECRETS,
         scope='https://www.googleapis.com/auth/plus.me',
         redirect_uri= flask.url_for('goog_auth_response.goog_auth_response_page', _external=True),
+        login_hint='yelp.com',
     )
 
     error = request.args.get('error', '')
@@ -70,16 +72,16 @@ def goog_auth_response_page():
             return redirect(flask.url_for('projects.main'))
         else:
             # If user doesn't exist, make new user.
-            stored_user = User.query(User.gplus_id == gplus_id)
-            if not stored_user:
+            stored_user = User.query(User.gplus_id == str(gplus_id)).get()
+            if stored_user is None:
                 # Create a new user.
                 new_user = User(
-                    gplus_id=gplus_id,
+                    gplus_id=str(gplus_id),
                     admin=1,
                     first_name=result['name']['givenName'],
                     last_name=result['name']['familyName'],
                     photo_url=result['image']['url'],
-                    team="",
+                    team=Team.query(Team.type == 'Yelp Consumer').get().key
                 )
                 new_user_key = new_user.put()
                 # REDIR to fill_out_your_info or project page?

@@ -31,7 +31,6 @@ def login_required(f):
                 current_time < stored_expire_time
         ):
             # Everything checks out? Continue with original route.
-            #return redirect(url_for('main.main_page'))
             return f(*args, **kwargs)
 
         # Missing or expired creds:
