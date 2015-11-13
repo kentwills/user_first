@@ -21,7 +21,6 @@ app = Flask(__name__)
 app.register_blueprint(main)
 app.register_blueprint(sign)
 app.register_blueprint(project)
-
 app.debug = True
 
 # We set a parent key on the 'Greetings' to ensure that they are all

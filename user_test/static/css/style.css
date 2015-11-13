@@ -60,7 +60,6 @@
 }
 .line:before
 {
-	background: rgba(224, 224, 224, 0.75);
 			content: '';
 			position: absolute;
 			width:100%;
@@ -177,6 +176,35 @@
 .navbar-right {
     float: right !important;
     margin-right: 0px !important;
+}
+
+.navbar {
+    padding-left: 5%;
+    padding-right: 5%;
+    min-height: 80px;
+}
+
+.navbar-content {
+    padding-top: 10px;
+}
+
+.navbar-inverse {
+    background-color: #FFF;
+    border-color: #E6E6E6;
+}
+
+.navbar-button {
+    margin-right: 10px;
+}
+
+.btn-success {
+    background-color: #59a007;
+    border-color: transparent;
+}
+
+.btn-success:hover {
+    background-color: #407207;
+    border-color: transparent;
 }
 
 #myModal {
@@ -688,3 +716,4 @@ padding: 40px 0px;
 
 }
 }
+
