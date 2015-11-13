@@ -1,12 +1,8 @@
 import os
 import sys
 
-import httplib2
 from flask import Flask
-from googleapiclient import discovery
-from google.appengine.api import memcache
 
-import upload
 from routes.sign import sign
 from routes.main import main
 from routes.project import project
