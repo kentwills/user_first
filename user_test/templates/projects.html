@@ -80,9 +80,9 @@
                                 <p class="lead">Homepage Wireframe prototype test</p>
 
                                 <p>{{ project.date }}<br>
-                                    {{project.location}}</p>
+                                    {{ project.location }}</p>
 
-                                <p><a href="#">Click to learn more</a></p>
+                                <p><a href={{"/project/{}".format(project.key.id()) }}>Click to learn more</a></p>
                             </div>
                         </div>
                     </div>
