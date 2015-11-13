@@ -17,5 +17,224 @@
             </div>
         </div>
         </nav>
-        {% block belowNavBar %}{% endblock %}
+    {% block belowNavBar %}
+<div class="gallery" id="gallery">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="alldesc">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <p class="desc text-center">UPCOMING USER TESTS</p>
+          </div>
+          </div>
+      </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="sorting text-center">
+            <button class="filter filimg" data-filter="all">Show All</button>
+            <button class="filter filimg" data-filter=".category-1">Eat24</button>
+            <button class="filter filimg" data-filter=".category-2">Yelp</button>
+            <button class="filter filimg" data-filter=".category-3">SeatMe</button>
+          </div>
+      </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="galleryimg" id="galleryimg">
+            <div class="grid mix category-1 col-md-4 col-sm-6 col-xs-6" data-myorder="1">
+
+                        <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h2>EAT24</h2>
+            </div>
+            <div class="panel-body">
+                            <p class="lead">Homepage Wireframe prototype test</p>
+              <p>Wednesday, November 23, 9am<br>
+                Soccer Field @ 13 Floor</p>
+                            <p><a href="#">Click to learn more</a></p>
+                        </div>  
+            </div>      
+            
+          </div>
+           <div class="grid mix category-2 col-md-4 col-sm-6 col-xs-6" data-myorder="2">
+                    <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2>YELP</h2>
+            </div>
+            <div class="panel-body">
+              <p class="lead">Homepage Wireframe prototype test</p>
+              <p>Wednesday, November 23, 9am<br>
+                Soccer Field @ 13 Floor</p>
+              <p><a href="#">Click to learn more</a></p>
+            </div>  
+            </div>
+          </div>
+           <div class="grid mix category-3 col-md-4 col-sm-6 col-xs-6" data-myorder="3">
+                    <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2>SEATME</h2>
+            </div>
+            <div class="panel-body">
+              <p class="lead">Homepage Wireframe prototype test</p>
+              <p>Wednesday, November 23, 9am<br>
+                Soccer Field @ 13 Floor</p>
+              <p><a href="#">Click to learn more</a></p>
+            </div>  
+            </div>
+          </div>
+           <div class="grid mix category-1 col-md-4 col-sm-6 col-xs-6" data-myorder="4">
+                    <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2>EAT24</h2>
+            </div>
+            <div class="panel-body">
+              <p class="lead">Homepage Wireframe prototype test</p>
+              <p>Wednesday, November 23, 9am<br>
+                Soccer Field @ 13 Floor</p>
+              <p><a href="#">Click to learn more</a></p>
+            </div>  
+            </div>
+          </div>
+           <div class="grid mix category-2 col-md-4 col-sm-6 col-xs-6" data-myorder="5">
+                    <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2>YELP</h2>
+            </div>
+            <div class="panel-body">
+              <p class="lead">Homepage Wireframe prototype test</p>
+              <p>Wednesday, November 23, 9am<br>
+                Soccer Field @ 13 Floor</p>
+              <p><a href="#">Click to learn more</a></p>
+            </div>  
+            </div>
+          </div>
+           <div class="grid mix category-3 col-md-4 col-sm-6 col-xs-6" data-myorder="6">
+                    <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2>SEATME</h2>
+            </div>
+            <div class="panel-body">
+              <p class="lead">Homepage Wireframe prototype test</p>
+              <p>Wednesday, November 23, 9am<br>
+                Soccer Field @ 13 Floor</p>
+              <p><a href="#">Click to learn more</a></p>
+            </div>  
+            </div>
+          </div>
+           
+      </div>
+      </div>
+  </div>
+  </div>
+  </div>
+<script src="js/jquery.mixitup.js" type="text/javascript"></script> 
+<script type="text/javascript" src="js/jquery.quovolver.js"></script>
+<script>
+    
+    $(function(){
+  $('#galleryimg').mixItUp();
+});
+    /*$('.timer').each(count);*/
+    jQuery(function ($) {
+      // custom formatting example
+      $('.timer').data('countToOptions', {
+        formatter: function (value, options) {
+          return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+        }
+      });
+ 
+      // start all the timers
+      $('#gallery').waypoint(function() {
+    $('.timer').each(count);
+    });
+ 
+      function count(options) {
+        var $this = $(this);
+        options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+        $this.countTo(options);
+      }
+    });
+    
+    
+     $('.quotes').quovolver({
+      equalHeight   : true
+    });
+    
+    
+    </script>
+    <script>
+
+    $(document).ready(function () {
+
+        $(document).on("scroll", onScroll);
+
+ 
+
+        $('a[href^="#"]').on('click', function (e) {
+
+            e.preventDefault();
+
+            $(document).off("scroll");
+
+ 
+
+            $('a').each(function () {
+
+                $(this).removeClass('active');
+
+            })
+
+            $(this).addClass('active');
+
+ 
+
+            var target = this.hash;
+
+            $target = $(target);
+
+            $('html, body').stop().animate({
+
+                'scrollTop': $target.offset().top
+
+            }, 500, 'swing', function () {
+
+                window.location.hash = target;
+
+                $(document).on("scroll", onScroll);
+
+            });
+
+        });
+
+    });
+
+ 
+
+    function onScroll(event){
+
+        var scrollPosition = $(document).scrollTop();
+
+        $('.nav li a').each(function () {
+
+            var currentLink = $(this);
+
+            var refElement = $(currentLink.attr("href"));
+
+            if (refElement.position().top <= scrollPosition && refElement.position().top + refElement.height() > scrollPosition) {
+
+                $('.nav li a').removeClass("active");
+
+                currentLink.addClass("active");
+
+            }
+
+            else{
+
+                currentLink.removeClass("active");
+
+            }
+
+        });
+
+    }
+
+    </script>
+    {% endblock %}
 {% endblock %}
