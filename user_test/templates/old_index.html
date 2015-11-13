@@ -3,8 +3,12 @@
 <html>
 <head>
   <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="755781712254-6ovobkeglikdboh6ov0fuc5vgq5lfn5g.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
   <body>
+
     {% for greeting in greetings %}
       {% if greeting.author %}
         <b>{{ greeting.author.email }}
