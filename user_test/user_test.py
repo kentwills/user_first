@@ -12,6 +12,8 @@ from routes.project_owner import project_owner
 from routes.projects import projects
 from routes.login import login
 from routes.logout import logout
+from routes.deactivate_project import deactivate_project
+from routes.activate_project import activate_project
 from routes.create_fake_project import create_fake_project
 from routes.goog_auth_response import goog_auth_response
 import upload
@@ -29,6 +31,8 @@ app.register_blueprint(projects)
 app.register_blueprint(goog_auth_response)
 app.register_blueprint(login)
 app.register_blueprint(logout)
+app.register_blueprint(deactivate_project)
+app.register_blueprint(activate_project)
 
 # upload.run()
 # upload.add_project()

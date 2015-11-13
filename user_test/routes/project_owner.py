@@ -26,5 +26,6 @@ def main(project_id):
         attributes={"age": "31", "sex": "male"},
         participants=[User(first_name="Kent", last_name="Wills", team=Team.query(Team.type == 'Yelp Consumer').get().key)],
         team=team,
-        user_photo_url=session['photo_url']
+        user_photo_url=session['photo_url'],
+        project_id=project_id,
     )

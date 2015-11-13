@@ -21,7 +21,7 @@ def main(project_id):
     # If the user is the owner of this event, then redirect to the owner page.
     if session['user_id'] == project_details.owner.id():
         return redirect('/project_owner/' + str(project_id))
-    
+
     return render_template(
         'project.html',
         project_details=project_details,

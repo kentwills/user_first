@@ -130,11 +130,11 @@
             <div class="row">
                 {% if project_details.status %}
                  <div class="alert alert-success" role="alert">This project is accepting participants.
-                    <button type="button" class="btn-primary pull-right">DEACTIVATE</button>
+                   <a type="button" href="/deactivate_project/{{project_id}}" class="btn btn-primary pull-right">DEACTIVATE</a>
                 </div>
                 {% else %}
                 <div class="alert alert-danger" role="alert">This project is no longer accepting participants.
-                    <button type="button" class="btn-primary pull-right">REACTIVATE</button>
+                    <a type="button" href="/activate_project/{{project_id}}" class="btn btn-primary pull-right">REACTIVATE</a>
                 </div>
                 {% endif %}
                 <div class="col-xs-6 text-left">
