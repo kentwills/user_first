@@ -585,31 +585,18 @@ label{
 /*------------------------------------------/
 /-----------------Footer--------------------/
 /------------------------------------------*/
-.foot
-{
-	padding: 50px 0px 30px;
-}
-.foot-logo
-{
-	font-family: 'Pacifico', cursive;
-	color: #3EC9C3;	
-	font-size: 30px;
-	text-align: center;
-}
-.foot-text
-{
-	color: #888;
-	font-family: "Source Sans Pro",sans-serif;
-	font-size: 12px;
-	font-weight: 600;
-	padding: 20px 0px;
-	text-transform: uppercase;
-}
-.foot-text a
-{
-	color: #3EC9C3;	
+
+
+#footer{
+	border-top: 1px solid #eee;
+	padding: 40px;
+	color: #ccc;
 }
 
+#footer h5
+{
+	margin-top: -10px;
+}
 
 
 
