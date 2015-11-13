@@ -4,6 +4,7 @@ import models
 def run():
     add_teams()
     add_attributes()
+    add_project()
 
 
 def add_teams():
