@@ -6,10 +6,14 @@ from google.appengine.ext import ndb
 from models import User
 from models import Team
 
+from route_utils import login_required
+
+
 project_owner = Blueprint('project_owner', __name__, template_folder='templates')
 
 
 @project_owner.route('/project_owner/<int:project_id>')
+@login_required
 def main(project_id):
     project_details = ndb.Key('Project', project_id).get()
     print ndb.Key('Team', 5047308127305728).get()
