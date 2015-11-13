@@ -21,6 +21,7 @@ class Attribute(ndb.Model):
 
 class User(ndb.Model):
     gplus_id = ndb.StringProperty()
+    gplus_email = ndb.StringProperty()
     admin = ndb.IntegerProperty()  # 1=admin, 0=normal user.
     first_name = ndb.StringProperty()
     last_name = ndb.StringProperty()
