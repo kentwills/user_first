@@ -5,6 +5,7 @@ import datetime
 from flask import Blueprint, render_template, abort
 from flask import request
 from flask import redirect
+from flask import session
 from google.appengine.ext import ndb
 
 from route_utils import login_required
@@ -43,4 +44,9 @@ def main():
         project_list = models.Project.query().fetch()
         team_list = models.Team.query().fetch()
 
-        return render_template('projects.html', project_list=project_list, team_list=team_list)
+        return render_template(
+            'projects.html',
+            project_list=project_list,
+            team_list=team_list,
+            user_photo_url=session['photo_url'],
+        )

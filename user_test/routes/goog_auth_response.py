@@ -58,6 +58,7 @@ def goog_auth_response_page():
         session['gplus_access_token'] = credentials.access_token
         session['gplus_id'] = gplus_id
         session['goog_auth_expire_time'] = expire_time
+        session['photo_url'] = result['image']['url']
 
         if (
                 stored_access_token is not None and

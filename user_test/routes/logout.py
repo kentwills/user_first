@@ -15,5 +15,6 @@ def logout_route():
     session['gplus_access_token'] = None
     session['gplus_id'] = None
     session['goog_auth_expire_time'] = None
+    session['photo_url'] = None
 
     return redirect(flask.url_for('main.main_page'))

@@ -11,8 +11,9 @@
             <button class="btn btn-success navbar-button" data-toggle="modal" data-target="#myModal1">Create New Test!
             </button>
 
-                <span class="navbar-button"><img src="/img/bowtie_cat.jpeg" class="img-circle"
-                                                 width="50px"/></span>
+            <span class="navbar-button">
+              <img src="{{ user_photo_url if user_photo_url else '/img/bowtie_cat.jpeg' }}" class="img-circle" width="50px"/>
+            </span>
 
             <span><a href="/logout">Logout</a></span>
         </div>
