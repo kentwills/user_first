@@ -6,5 +6,5 @@ project = Blueprint('project', __name__, template_folder='templates')
 
 @project.route('/project')
 def main():
-    teams = models.Team.query()
-    return render_template('logged_in.html', team_list=teams)
+    projects = models.Project.query()
+    return render_template('project.html', team_list=projects)

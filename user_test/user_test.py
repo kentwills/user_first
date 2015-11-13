@@ -21,11 +21,6 @@ app.register_blueprint(goog_auth_response)
 
 app.debug = True
 
-@app.route('/projects')
-def projects():
-    #replace index.html with projects.html
-    return render_template('index.html')
-
 @app.route(oauth2_decorator.callback_path)
 def authorize_user():
     return request.query_string
