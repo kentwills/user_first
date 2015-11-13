@@ -21,23 +21,22 @@ def main():
         time = request.form['time_frame']
         date = request.form['date']
         qualifications = request.form['qualifications']
-        print date
 
         models.Project(
                 owner=models.User.query().get().key,
-                team=(models.Team.query().get().key),
+                team=models.Team.query().get().key,
                 title=project_name,
                 description=project_description,
                 date_time=datetime.datetime.strptime(date, '%m/%d/%Y'),
                 time_range=time,
                 location=location,
                 room_name=room_name,
-                status=models.STATUS_ACTIVE
+                status=models.STATUS_ACTIVE,
+                qualifications=qualifications
                 ).put()
      
         
     project_list = models.Project.query()
-    print project_list
     team_list = models.Team.query()
 
     return render_template('projects.html', project_list=project_list, team_list=team_list)

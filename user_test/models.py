@@ -1,7 +1,9 @@
 from google.appengine.ext import ndb
 
 STATUS_ACTIVE = 1;
-STATUS_DEACTIVE = 0; 
+STATUS_DEACTIVE = 0;
+
+
 class ProjectAttribute(ndb.Model):
     project = ndb.KeyProperty(kind="Project")
     attribute = ndb.KeyProperty(kind="Attribute")
@@ -35,6 +37,7 @@ class Project(ndb.Model):
     location = ndb.StringProperty()
     room_name = ndb.StringProperty()
     status = ndb.IntegerProperty()
+    qualifications = ndb.StringProperty()
 
 
 class ProjectUsers(ndb.Model):
