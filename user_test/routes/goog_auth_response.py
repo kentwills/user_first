@@ -46,6 +46,7 @@ def goog_auth_response_page():
 # 834 char id_token
 
 # Credentials .to_json() looks like:
+"""
 {
     "token_response": {
         "token_type": "Bearer",
@@ -57,10 +58,10 @@ def goog_auth_response_page():
     "client_id": "999999999999-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.apps.googleusercontent.com",
     "revoke_uri": "https:g/accounts.google.com/o/oauth2/revoke",
     "scopes": ["https://www.googleapis.com/auth/plus.me"],
-    "invalid": false,
+    "invalid": False,
     "token_info_uri": "https://www.googleapis.com/oauth2/v2/tokeninfo",
     "client_secret": "XXXXXXXXXXXXXXXXXXXXXXXX",
-    "refresh_token": null,
+    "refresh_token": None,
     "id_token": {
         "sub": "999999999999999999999",
         "iss": "accounts.google.com",
@@ -76,3 +77,4 @@ def goog_auth_response_page():
     "token_uri": "https://accounts.google.com/o/oauth2/token",
     "token_expiry": "2015-11-13T06:25:12Z"
 }
+"""
