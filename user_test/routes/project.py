@@ -21,7 +21,6 @@ def main(project_id):
     return render_template(
         'project.html',
         project_details=project_details,
-        attributes={"age": "31", "sex": "male"},
         user_photo_url=session['photo_url'],
         participants=[User(first_name="Kent", last_name="Wills", team=Team.query(Team.type == 'Yelp Consumer').get().key)]
     )

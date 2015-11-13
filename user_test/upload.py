@@ -1,7 +1,9 @@
 import models
+from google.appengine.ext import ndb
 
 
 def run():
+    delete_all()
     add_teams()
     add_attributes()
     add_project()
@@ -34,3 +36,8 @@ def add_project():
         status=True
     ).put()
 
+
+def delete_all():
+    ndb.delete_multi(models.Project.query().fetch(keys_only=True))
+    ndb.delete_multi(models.Team.query().fetch(keys_only=True))
+    ndb.delete_multi(models.ProjectUsers.query().fetch(keys_only=True))

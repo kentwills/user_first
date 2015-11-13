@@ -54,7 +54,7 @@
                             <li class="list-group-item">
                                 <div>
                                     <span class="navbar-button pull-left"><img src="/img/bowtie_cat.jpeg" class="img-circle" width="50px"/></span>
-                                    <a href="#"> Lindsay Lienson</a>
+                                    <a href="#"> Lindsay Liebson</a>
                                     <br>YELP Consumer
                                 </div>
                             </li>
@@ -85,10 +85,8 @@
                         <p>{{ project_details.description}}</p>
                         <br>
                         <strong>Pre-reqs</strong>
+                        <p>{{ project_details.qualifications}}</p>
 
-                        {% for attribute, value in attributes.iteritems() %}
-                            <p>{{ attribute }} : {{value}}</p>
-                        {% endfor %}
                     </div>
                 </div>
                 <div class="col-xs-6 text-left">

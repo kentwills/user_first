@@ -22,7 +22,7 @@
                     <button class="filter filimg" data-filter="all">All</button>
 
                     {% for team in team_list %}
-                    <button class="filter filimg" data-filter={{"." + team.type}}>{{ team.type }}</button>
+                    <button class="filter filimg" data-filter={{team.id}}>{{ team.type }}</button>
                     {% endfor %}
 
                 </div>
@@ -31,7 +31,7 @@
                 <div class="galleryimg" id="galleryimg">
 
                     {% for project in project_list %}
-                    <div class="grid mix {{ project.team.type }} col-md-4 col-sm-6 col-xs-6" data-myorder="1">
+                    <div class="grid mix {{ project.team.id }} col-md-4 col-sm-6 col-xs-6" data-myorder="1">
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
