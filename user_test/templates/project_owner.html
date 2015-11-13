@@ -17,41 +17,107 @@
 {% if project_details==None %}
         <div class="container">
             <div class="row">
+                <div class="alert alert-success" role="alert">This project is accepting participants.
+                    <button type="button" class="btn-primary pull-right">DEACTIVATE</button>
+                </div>
                 <div class="col-xs-6 text-left">
                     <div class="service-box">
-                        <h1 class="section-heading">EAT24 (THIS IS AN EXAMPLE)</h1>
+                        <h3 class="text-uppercase"><span class="section-heading">EAT24</span>
 
-                        <h2>Homepage wireframe prototype test</h2>
+                        <br>Homepage wireframe prototype test</h3>
+
+                        <p class="desc">140 New Montgomery
+                        <br>Wednesday, November 23, 9am-10am
+                        <br>Soccer Field@13 Floor</p>
                         <br>
-
-                        <p>Wednesday, November 23, 9am-10am</p>
-
-                        <p>140 New Montgomery, 13 Floor Soccer Field</p>
                         <br>
                         <strong>Description</strong>
-
-                        <p>Come test a new nav flow for ordering certain types of food in our app.</p>
+                        <p>We are looking for EAT24 users that have placed at least two orders in the past month. We are looking for EAT24 users that have placed  at least two orders in the past month. </p>
                         <br>
-                        <strong>Pre-reqs</strong>
+                        <strong>Pre-reqs/Qualifications</strong>
 
-                        <p>We are looking for EAT24 users that have placed at least two orders in the last two weeks to
-                            test
-                            a new flow for us.</p>
+                        <p>We are looking for EAT24 users that have placed at least two orders in the past month. We are looking for EAT24 users that have placed  at least two orders in the past month. We are looking for EAT24 users that have placed at least two orders in the past month. We are looking for EAT24 users that have placed  at least two orders in the past month.</p>
+                        <a href="#">EDIT</a>
                     </div>
                 </div>
                 <div class="col-xs-6 text-left">
                     <div class="service-box">
-                        <h3>Are you interested?</h3>
-                        <button type="button" class="btn btn-primary btn-lg active">Participate</button>
-                        <h3>2 Participating</h3>
+                        <h3>Waiting to be approved</h3>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <span class="navbar-button"><img src="/img/bowtie_cat.jpeg" class="img-circle" width="50px"/></span>
+                                <a href="#"> Kent Wills</a>
+                                <div class="btn-group pull-right" role="group">
+                                    <button type="button" class="btn btn-default">Yes</button>
+                                    <button type="button" class="btn btn-default">No</button>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <span class="navbar-button"><img src="/img/bowtie_cat.jpeg" class="img-circle" width="50px"/></span>
+                                <a href="#"> Wolfe Styke</a>
+                                <div class="btn-group pull-right" role="group">
+                                    <button type="button" class="btn btn-default">Yes</button>
+                                    <button type="button" class="btn btn-default">No</button>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <span class="navbar-button"><img src="/img/bowtie_cat.jpeg" class="img-circle" width="50px"/></span>
+                                <a href="#"> Maggie Nan</a>
+                                <div class="btn-group pull-right" role="group">
+                                    <button type="button" class="btn btn-default">Yes</button>
+                                    <button type="button" class="btn btn-default">No</button>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <span class="navbar-button"><img src="/img/bowtie_cat.jpeg" class="img-circle" width="50px"/></span>
+                                <a href="#"> Tiffany Ko</a>
+                                <div class="btn-group pull-right" role="group">
+                                    <button type="button" class="btn btn-default">Yes</button>
+                                    <button type="button" class="btn btn-default">No</button>
+                                </div>
+                            </li>
+                        </ul>
+                        <h3>Approved Users</h3>
 
-                        <p>Jonathan Maltz</p>
+                        <ul class="list-group list1">
+                            <li class="list-group-item">
+                                <div>
+                                    <span class="navbar-button pull-left"><img src="/img/bowtie_cat.jpeg" class="img-circle" width="50px"/></span>
+                                    <a href="#"> Jonathan Maltz</a>
+                                    <br>EAT24
+                                    <p class="statusA">APPROVED</p>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div>
+                                    <span class="navbar-button pull-left"><img src="/img/bowtie_cat.jpeg" class="img-circle" width="50px"/></span>
+                                    <a href="#"> Lindsay Lienson</a>
+                                    <br>YELP Consumer
+                                    <p class="statusA">APPROVED</p>
+                                </div>
+                            </li>
+                        </ul>
 
-                        <p>EAT24</p>
+                        <h3>Denied Users</h3>
 
-                        <p>Lindsay Liebson</p>
-
-                        <p>Yelp Consumer</p>
+                        <ul class="list-group list1">
+                            <li class="list-group-item">
+                                <div>
+                                    <span class="navbar-button pull-left"><img src="/img/bowtie_cat.jpeg" class="img-circle" width="50px"/></span>
+                                    <a href="#"> Silas Godfrey</a>
+                                    <br>SEATME
+                                    <p class="statusD">DENIED</p>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div>
+                                    <span class="navbar-button pull-left"><img src="/img/bowtie_cat.jpeg" class="img-circle" width="50px"/></span>
+                                    <a href="#"> Homer Simpson</a>
+                                    <br>EAT24
+                                    <p class="statusD">DENIED</p>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>

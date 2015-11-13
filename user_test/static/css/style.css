@@ -436,11 +436,12 @@
 	color: #c31709;
 }
 .service-box h3{
-	color: #666;
+	color: #222;
+	font-size: 22px;
 	font-weight: 400;
 }
 .service-box strong{
-	color: #666;
+	color: #706d6c;
 	font-weight: 400;
 	font-size: 18px;
 }
@@ -459,6 +460,12 @@
 .service-box .btn-group{
 	margin-top: 7px;
 }
+.list1 .list-group-item{
+	border-top:0;
+}
+.list1 .list-group-item:first-child{
+	border-top:1px solid #ddd;;
+}
 .list-group-item .statusA, .statusD{
 	float: right;
 	margin-top: -30px;
@@ -468,8 +475,9 @@
 	color: #c31709;
 }
 .alert .btn-primary{
-	border: none;
-	margin-top: -5px;
+	border: 1px solid #999;
+	border-radius: 3px;
+	margin-top: -6px;
 	font-weight: 300;
 	padding: 5px;
 }
