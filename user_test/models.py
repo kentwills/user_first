@@ -33,7 +33,7 @@ class Project(ndb.Model):
     team = ndb.KeyProperty(kind="Team")
     title = ndb.StringProperty()
     description = ndb.StringProperty()
-    date_time = ndb.DateTimeProperty()
+    date = ndb.StringProperty()
     time_range = ndb.StringProperty()
     location = ndb.StringProperty()
     room_name = ndb.StringProperty()
