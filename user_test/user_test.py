@@ -9,6 +9,7 @@ from routes.projects import projects
 from routes.login import login
 from routes.create_fake_project import create_fake_project
 from routes.goog_auth_response import goog_auth_response
+import upload
 
 
 sys.path.insert(1, os.path.join(os.path.abspath('.'), 'lib'))
@@ -20,5 +21,8 @@ app.register_blueprint(project)
 app.register_blueprint(projects)
 app.register_blueprint(goog_auth_response)
 app.register_blueprint(login)
+
+#upload.run()
+#upload.add_project()
 
 app.debug = True

@@ -1,7 +1,5 @@
 import flask
 from flask import Blueprint
-from flask import redirect
-from flask import render_template
 from flask import request
 from gplus_oauth import CLIENT_SECRETS
 from oauth2client import client
@@ -28,7 +26,6 @@ def goog_auth_response_page():
         # yay
         credentials = flow.step2_exchange(auth_code)
         return str(auth_code)
-
 
 # https://oauth2-login-demo.appspot.com/auth?error=access_denied
 # https://oauth2-login-demo.appspot.com/auth?code=4/P7q7W91a-oMsCeLvIaQm6bTrgtp7

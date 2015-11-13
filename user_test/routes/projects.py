@@ -7,4 +7,5 @@ projects = Blueprint('projects', __name__, template_folder='templates')
 @projects.route('/projects')
 def main():
     project_list = models.Project.query()
-    return render_template('projects.html', team_list=project_list)
+    team_list = models.Team.query()
+    return render_template('projects.html', project_list=project_list, team_list=team_list)
