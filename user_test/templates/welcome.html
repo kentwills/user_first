@@ -1,29 +1,28 @@
-
 {% extends "base_template.html" %}
 {% block content %}
-<div class="banner text-center" id="banner"> 
+<div class="banner text-center" id="banner">
     <div class="row">
     <div class="col-md-12 line">
       <div class="modal fade in" id="myModal" role="dialog" style="display: block; ">
         <div class="modal-dialog" id="myModalDialog">
-    
+
           <!-- Modal content-->
           <div class="modal-content" id="myModalContent">
 
             <div class="modal-body" >
               <div class="tablebox">
                 <div class="banner-text" id="bannertext">
-          
-          
+
+
                   <img class="landingImg" src="img/yelp_ux_logo.jpg">
 
                   <h3>HELP US PUT USERS FIRST</h3>
-                  
+
                   <p class="pstyle">An internal tool for Yelp employees to help define our products. Tell us what you think!</p>
 
                   <div class="subscibe">
                     <div class="col-sm-6 col-sm-offset-3 social-buttons">
-                      <a class="btn btn-block btn-social btn-google btn-or" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-google']);">
+                      <a class="btn btn-block btn-social btn-google btn-or" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-google']);" href="{{ auth_url }}">
                         <span class="fa fa-google-plus"></span> Sign in with Google
                       </a>
                       <div class="col-sm-3 social-buttons">
@@ -34,21 +33,21 @@
               </div>
 
             </div>
-      
+
           </div>
         </div>
       </div>
   </div>
 
-<script src="js/bootstrap.min.js"></script> 
+<script src="js/bootstrap.min.js"></script>
 <script>
 $(function(){
     var windowH = $(window).height();
     var bannerH = $('#banner').height();
-    if(windowH > bannerH) {                            
+    if(windowH > bannerH) {
         $('#banner').css({'height':($(window).height())+'px'});
 
-    }                                                                               
+    }
     $(window).resize(function(){
         var windowH = $(window).height();
         var bannerH = $('#banner').height();
@@ -64,7 +63,7 @@ $(function(){
 
         }
 
-    })          
+    })
 });
 </script>
 {% endblock %}

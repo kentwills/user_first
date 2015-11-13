@@ -8,19 +8,22 @@ from flask import redirect
 from google.appengine.api import users
 from google.appengine.ext import ndb
 
+from gplus_oauth import flow
+#from gplus_oauth import service
+
 DEFAULT_GUESTBOOK_NAME = 'default_guestbook'
 
 
-from flask import Blueprint, render_template, abort
+from flask import Blueprint, render_template, abort, redirect
+from gplus_oauth import flow
 
-main = Blueprint('main', __name__,
-                 template_folder='templates')
+main = Blueprint('main', __name__, template_folder='templates')
 
-
+#@oauth2_decorator.oauth_required
 @main.route('/')
 def main_page():
-
-    return render_template('welcome.html')
+    #return redirect(flow.step1_get_authorize_url())
+    return render_template('welcome.html', auth_url=flow.step1_get_authorize_url())
 
 
 def guestbook_key(guestbook_name=DEFAULT_GUESTBOOK_NAME):
