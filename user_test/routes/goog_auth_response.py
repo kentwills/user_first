@@ -1,8 +1,13 @@
+import httplib2
+import json
+
 import flask
 from flask import Blueprint
+from flask import make_response
 from flask import redirect
 from flask import render_template
 from flask import request
+from googleapiclient import discovery
 from gplus_oauth import CLIENT_SECRETS
 from oauth2client import client
 
@@ -27,7 +32,15 @@ def goog_auth_response_page():
     elif auth_code:
         # yay
         credentials = flow.step2_exchange(auth_code)
-        return str(auth_code)
+        http_auth = credentials.authorize(httplib2.Http())
+        plus_service = discovery.build('plus', 'v1', http=http_auth)
+        goog_request = plus_service.people().get(userId='me')
+        result = goog_request.execute(http=http_auth)
+
+        response = make_response(json.dumps(result), 200)
+        response.headers['Content-Type'] = 'application/json'
+        return response
+        #return str(user_info.name.formatted_name)
 
 
 # https://oauth2-login-demo.appspot.com/auth?error=access_denied
