@@ -1,18 +1,18 @@
-from flask import Blueprint, render_template, abort
-from flask import request
 import models
 import pprint
+import datetime
+
+from flask import Blueprint, render_template, abort
+from flask import request
+
 
 projects = Blueprint('projects', __name__, template_folder='templates')
 
 
 @projects.route('/projects', methods=["GET", "POST"])
 def main():
-    if request.method == 'GET': 
-        project_list = models.Project.query()
-        team_list = models.Team.query()
-        return render_template('projects.html', project_list=project_list, team_list=team_list)
-    else:
+
+    if request.method == 'POST':
         project_name = request.form['project_name']
         project_description = request.form['description']
         location = request.form['location']
@@ -21,5 +21,24 @@ def main():
         time = request.form['time_frame']
         date = request.form['date']
         qualifications = request.form['qualifications']
+        print date
 
-        return pprint.pformat(request.form) 
+        models.Project(
+                owner=models.User.query().get().key,
+                team=(models.Team.query().get().key),
+                title=project_name,
+                description=project_description,
+                date_time=datetime.datetime.strptime(date, '%m/%d/%Y'),
+                time_range=time,
+                location=location,
+                room_name=room_name,
+                status=models.STATUS_ACTIVE
+                ).put()
+     
+        
+    project_list = models.Project.query()
+    print project_list
+    team_list = models.Team.query()
+
+    return render_template('projects.html', project_list=project_list, team_list=team_list)
+
