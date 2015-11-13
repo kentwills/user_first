@@ -6,6 +6,8 @@ from flask import Blueprint, render_template, abort
 from flask import request
 from flask import redirect
 
+from google.appengine.ext import ndb
+
 
 projects = Blueprint('projects', __name__, template_folder='templates')
 
@@ -22,10 +24,10 @@ def main():
         time = request.form['time_frame']
         date = request.form['date']
         qualifications = request.form['qualifications']
-
-        models.Project(
-                owner=models.User.query().get().key,
-                team=models.Team.query().get().key,
+        
+        project = models.Project(
+                owner=(models.User.query().get().key),
+                team=ndb.Key(models.Team, product_type),
                 title=project_name,
                 description=project_description,
                 date_time=datetime.datetime.strptime(date, '%m/%d/%Y'),
@@ -37,7 +39,8 @@ def main():
                 ).put()
         return redirect('/project_owner/' + str(project.id()))
     else:
-        project_list = models.Project.query()
-        team_list = models.Team.query()
+        project_list = models.Project.query().fetch()
+        team_list = models.Team.query().fetch()
+         
         return render_template('projects.html', project_list=project_list, team_list=team_list)
 
