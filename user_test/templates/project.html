@@ -85,7 +85,7 @@
                     <div class="service-box">
                         <h1 class="section-heading">EAT24</h1>
 
-                        <h2>Homepage wireframe prototype test</h2>
+                        <h2>{{ project_details.title }}</h2>
                         <br>
 
                         <p>{{ project_details.date }}</p>
@@ -98,24 +98,21 @@
                         <br>
                         <strong>Pre-reqs</strong>
 
-                        <p>We are looking for EAT24 users that have placed at least two orders in the last two weeks to
-                            test
-                            a new flow for us.</p>
+                        {% for attribute, value in attributes.iteritems() %}
+                            <p>{{ attribute }} : {{value}}</p>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="col-xs-6 text-left">
                     <div class="service-box">
                         <h3>Are you interested?</h3>
                         <button type="button" class="btn btn-primary btn-lg active">Participate</button>
-                        <h3>2 Participating</h3>
+                        <h3>{{ participants|length }} Participating</h3>
 
-                        <p>Jonathan Maltz</p>
-
-                        <p>EAT24</p>
-
-                        <p>Lindsay Liebson</p>
-
-                        <p>Yelp Consumer</p>
+                        {% for participant in participants %}
+                            <p>{{ participant.first_name + " " + participant.last_name }}</p>
+                            <p>{{ participant.team.type }}</p>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

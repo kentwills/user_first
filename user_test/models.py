@@ -21,6 +21,7 @@ class User(ndb.Model):
     admin = ndb.IntegerProperty()
     first_name = ndb.StringProperty()
     last_name = ndb.StringProperty()
+    team = ndb.KeyProperty(kind="Team")
 
 
 class Project(ndb.Model):
