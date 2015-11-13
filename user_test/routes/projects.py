@@ -28,7 +28,7 @@ def main():
         qualifications = request.form['qualifications']
 
         project = models.Project(
-                owner=(models.User.query().get().key),
+                owner=(models.User(gplus_id=session['gplus_id']).query().get().key),
                 team=ndb.Key(models.Team, product_type),
                 title=project_name,
                 description=project_description,
