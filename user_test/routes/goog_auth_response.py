@@ -81,7 +81,7 @@ def goog_auth_response_page():
                 # Create a new user.
                 new_user = User(
                     gplus_id=str(gplus_id),
-                    gplus_email=gplus_gmail,
+                    gplus_email=gplus_email,
                     admin=1,
                     first_name=result['name']['givenName'],
                     last_name=result['name']['familyName'],
