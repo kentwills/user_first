@@ -4,6 +4,7 @@ import datetime
 
 from flask import Blueprint, render_template, abort
 from flask import request
+from flask import redirect
 
 
 projects = Blueprint('projects', __name__, template_folder='templates')
@@ -34,10 +35,9 @@ def main():
                 status=models.STATUS_ACTIVE,
                 qualifications=qualifications
                 ).put()
-     
-        
-    project_list = models.Project.query()
-    team_list = models.Team.query()
-
-    return render_template('projects.html', project_list=project_list, team_list=team_list)
+        return redirect('/project_owner/' + str(project.id()))
+    else:
+        project_list = models.Project.query()
+        team_list = models.Team.query()
+        return render_template('projects.html', project_list=project_list, team_list=team_list)
 
