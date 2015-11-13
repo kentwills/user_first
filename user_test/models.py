@@ -20,10 +20,11 @@ class Attribute(ndb.Model):
 
 
 class User(ndb.Model):
-    token = ndb.IntegerProperty()
-    admin = ndb.IntegerProperty()
+    gplus_id = ndb.IntegerProperty()
+    admin = ndb.IntegerProperty()  # 1=admin, 0=normal user.
     first_name = ndb.StringProperty()
     last_name = ndb.StringProperty()
+    photo_url = ndb.StringProperty()
     team = ndb.KeyProperty(kind="Team")
 
 

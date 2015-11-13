@@ -6,10 +6,14 @@ from google.appengine.ext import ndb
 from models import User
 from models import Team
 
+from route_utils import login_required
+
+
 project = Blueprint('project', __name__, template_folder='templates')
 
 
 @project.route('/project/<int:project_id>')
+@login_required
 def main(project_id):
     project_details = ndb.Key('Project', project_id).get()
     return render_template(
