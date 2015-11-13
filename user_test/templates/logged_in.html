@@ -16,6 +16,9 @@
                 <span><a href="#">Logout</a></span>
             </div>
         </div>
+        {% for team in team_list %}
+            <li>{{ team.type }}</li>
+        {% endfor %}
         </nav>
     {% block belowNavBar %}
 <div class="gallery" id="gallery">
