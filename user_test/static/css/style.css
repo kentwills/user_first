@@ -220,6 +220,12 @@
 	border: 1px solid #eaeaea;
 }
 
+.modal-body .form-group {
+    width: 50%;
+    padding-right: 15px;
+    display: inline-table;
+}
+
 .modal-footer {
 	text-align: center !important;
 }
