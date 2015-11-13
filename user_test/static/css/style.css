@@ -460,6 +460,11 @@
 .service-box .btn-group{
 	margin-top: 7px;
 }
+.service-box .btn-warning{
+	border-radius: 3px;
+	width: 100%;
+	font-size: 22px;
+}
 .list1 .list-group-item{
 	border-top:0;
 }
