@@ -1,12 +1,13 @@
 import os
 import httplib2
 
+import flask
 from googleapiclient import discovery
 from oauth2client import appengine
-from oauth2client import client
 #from google.appengine.api import memcache
 
 from oauth2client.appengine import OAuth2Decorator
+
 
 
 # We set a parent key on the 'Greetings' to ensure that they are all
@@ -30,14 +31,6 @@ found at:
 href="https://code.google.com/apis/console">APIs Console</a>.
 </p>
 """ % CLIENT_SECRETS
-
-
-flow = client.flow_from_clientsecrets(
-    CLIENT_SECRETS,
-    scope='https://www.googleapis.com/auth/plus.me',
-    redirect_uri='http://localhost:8080/oauth2callback'
-)
-
 
 oauth2_decorator = appengine.oauth2decorator_from_clientsecrets(
     CLIENT_SECRETS,
