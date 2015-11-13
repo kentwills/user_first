@@ -15,4 +15,4 @@ project = Blueprint('project', __name__,
 
 @project.route('/project')
 def main():
-    return render_template('old_index.html')
+    return render_template('logged_in.html')
