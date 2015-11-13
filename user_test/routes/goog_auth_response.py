@@ -3,9 +3,6 @@ import json
 
 import flask
 from flask import Blueprint
-from flask import make_response
-from flask import redirect
-from flask import render_template
 from flask import request
 from googleapiclient import discovery
 from gplus_oauth import CLIENT_SECRETS
@@ -41,7 +38,6 @@ def goog_auth_response_page():
         response.headers['Content-Type'] = 'application/json'
         return response
         #return str(user_info.name.formatted_name)
-
 
 # https://oauth2-login-demo.appspot.com/auth?error=access_denied
 # https://oauth2-login-demo.appspot.com/auth?code=4/P7q7W91a-oMsCeLvIaQm6bTrgtp7

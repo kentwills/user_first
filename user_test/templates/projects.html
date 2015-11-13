@@ -19,10 +19,6 @@
                 <span><a href="#">Logout</a></span>
             </div>
         </div>
-
-        {% for team in team_list %}
-            <li>{{ team.type }}</li>
-        {% endfor %}
         </nav>
     <div class="modal fade" id="myModal1" role="dialog">
                     <div class="modal-dialog">
@@ -61,13 +57,34 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="sorting text-center">
             <button class="filter filimg" data-filter="all">All</button>
-            <button class="filter filimg" data-filter=".category-1">Eat24</button>
-            <button class="filter filimg" data-filter=".category-2">Yelp</button>
-            <button class="filter filimg" data-filter=".category-3">SeatMe</button>
+
+            {% for team in team_list %}
+                <button class="filter filimg" data-filter={{"." + team.type}}>{{ team.type }}</button>
+            {% endfor %}
+
           </div>
       </div>
         <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="galleryimg" id="galleryimg">
+
+            {% for project in project_list %}
+            <div class="grid mix {{ project.team.type }} col-md-4 col-sm-6 col-xs-6" data-myorder="1">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2>{{ project.title }}</h2>
+                    </div>
+                    <div class="panel-body">
+                        <p class="lead">Homepage Wireframe prototype test</p>
+                        <p>{{ project.date }}<br>
+                            {{project.location}}</p>
+                        <p><a href="#">Click to learn more</a></p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+
             <div class="grid mix category-1 col-md-4 col-sm-6 col-xs-6" data-myorder="1">
 
                         <div class="panel panel-default">

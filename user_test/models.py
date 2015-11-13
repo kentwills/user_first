@@ -1,19 +1,29 @@
 from google.appengine.ext import ndb
 
 
+class ProjectAttribute(ndb.Model):
+    project = ndb.KeyProperty(kind="Project")
+    attribute = ndb.KeyProperty(kind="Attribute")
+
+
+class UserAttribute(ndb.Model):
+    user = ndb.KeyProperty(kind="User")
+    attribute = ndb.KeyProperty(kind="Attribute")
+
+
 class Attribute(ndb.Model):
     name = ndb.StringProperty()
+    value = ndb.StringProperty()
 
 
 class User(ndb.Model):
-    """Model for our Users"""
     token = ndb.IntegerProperty()
     admin = ndb.IntegerProperty()
-    attributes = ndb.KeyProperty(kind="Attributes")
+    first_name = ndb.StringProperty()
+    last_name = ndb.StringProperty()
 
 
 class Project(ndb.Model):
-    """PM projects"""
     owner = ndb.KeyProperty(kind="User")
     team = ndb.KeyProperty(kind="Team")
     title = ndb.StringProperty()
@@ -31,16 +41,3 @@ class ProjectUsers(ndb.Model):
 
 class Team(ndb.Model):
     type = ndb.StringProperty()
-
-
-class Author(ndb.Model):
-    """Sub model for representing an author."""
-    identity = ndb.StringProperty(indexed=False)
-    email = ndb.StringProperty(indexed=False)
-
-
-class Greeting(ndb.Model):
-    """A main model for representing an individual Guestbook entry."""
-    author = ndb.StructuredProperty(Author)
-    content = ndb.StringProperty(indexed=False)
-    date = ndb.DateTimeProperty(auto_now_add=True)
