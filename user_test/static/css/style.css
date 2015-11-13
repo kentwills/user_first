@@ -84,13 +84,6 @@
 	display: table;
 	width: 100%;
 }
-.hostyle
-{
-	font-family: 'Pacifico', cursive;
-	/*color: #c6027f;	*/
-	color: #33A29D;
-	font-size: 60px;
-}
 .pstyle
 {
 	padding-left: 30px;
@@ -267,10 +260,9 @@
 
 .desc
 {
-	 font-family: "Source Sans Pro",sans-serif;
-	 font-size: 28px;
-	 font-weight: 400;
-	 color: #888;
+	 font-size: 15px !important;
+	 font-weight: 400 !important;
+	 color: #999 !important;
 	 margin-top: 10px;
 }
 .sorting
@@ -303,7 +295,7 @@
 	text-align: left;
 	font-size: 25px;
 }
-.galleryimg p{
+.galleryimg p {
 	color: #999;
 	text-align: left;
 	padding-bottom: 15px;
@@ -315,7 +307,7 @@
 	font-size: 23px;
 }
 
-.gallery button{
+.sorting button{
 	-webkit-border-radius: 50px;
     -khtml-border-radius: 50px;
     -moz-border-radius: 50px;
@@ -438,20 +430,52 @@
 
 
 /*------------------------------------------/
-/-----------------Team----------------------/
+/-----------------Project----------------------/
 /------------------------------------------*/
-
-
-
-
-
-
-
-
-
+.section-heading{
+	color: #c31709;
+}
+.service-box h3{
+	color: #666;
+	font-weight: 400;
+}
+.service-box strong{
+	color: #666;
+	font-weight: 400;
+	font-size: 18px;
+}
+.service-box p{
+	color: #999;
+	text-align: left;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	font-size: 18px;
+	font-weight: 300;
+}
+.service-box a{
+	font-size: 20px;
+	font-weight: 300;
+}
+.service-box .btn-group{
+	margin-top: 7px;
+}
+.list-group-item .statusA, .statusD{
+	float: right;
+	margin-top: -30px;
+	color: #59a007;
+}
+.list-group-item .statusD{
+	color: #c31709;
+}
+.alert .btn-primary{
+	border: none;
+	margin-top: -5px;
+	font-weight: 300;
+	padding: 5px;
+}
 
 /*------------------------------------------/
-/-----------------Subscribe------------------/
+/-----------------Projects------------------/
 /------------------------------------------*/
 
 .subscribe-social

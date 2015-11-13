@@ -24,7 +24,7 @@ app.register_blueprint(projects)
 app.register_blueprint(goog_auth_response)
 app.register_blueprint(login)
 
-#upload.run()
-#upload.add_project()
+# upload.run()
+# upload.add_project()
 
 app.debug = True
