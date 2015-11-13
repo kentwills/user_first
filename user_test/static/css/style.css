@@ -177,8 +177,13 @@
 }
 
 .navbar {
-    margin-left: 5%
-    margin-right: 5%
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.navbar-inverse {
+    background-color: #FFF;
+    border-color: #E6E6E6;
 }
 
 .navbar-fixed-top {

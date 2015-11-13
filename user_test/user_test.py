@@ -4,6 +4,7 @@ import sys
 import httplib2
 import jinja2
 from flask import Flask
+from flask import render_template
 from routes.sign import sign
 from routes.main import main
 from routes.project import project
@@ -56,6 +57,7 @@ oauth2_decorator = appengine.oauth2decorator_from_clientsecrets(
     message=MISSING_CLIENT_SECRETS_MESSAGE,
 )
 
+<<<<<<< Updated upstream
 <<<<<<< 0889ffa6a5000248c8e1f477383449cd03eb05d1
 @app.route(oauth2_decorator.callback_path)
 def authorize_user():
@@ -64,4 +66,3 @@ def authorize_user():
 @app.route(oauth2_decorator.callback_path)
 def authorize_user():
     return oauth2_decorator.callback_handler()
-
