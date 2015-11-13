@@ -466,11 +466,20 @@
 	width: 30%;
 	
 }
-.form-control, .form-control:focus
+.form-control1, .form-control1:focus
 {
-	color: #000 !important;
-	border: 1px solid #000 !important;
 	box-shadow: none !important;
+	margin-bottom: 10px;
+	display: block;
+	width: 100%;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 .social
 {
@@ -488,8 +497,26 @@
 	font-size: 35px;
 	line-height: 0px !important;
 }
-
-
+.modal-content{
+	padding: 1px 20px;
+}
+.close{
+	font-size: 30px;
+	font-weight: 400;
+}
+label{
+	color: #666;
+	font-weight: 400;
+	margin-top: 3px;
+}
+.radio-inline, .radio{
+	margin-top: none;
+}
+.modal-title{
+	color: #999;
+	font-weight: 300;
+	font-size: 23px;
+}
 .address
 {
 	padding: 60px 0px;
