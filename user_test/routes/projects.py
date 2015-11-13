@@ -4,6 +4,7 @@ import datetime
 
 from flask import Blueprint, render_template, abort
 from flask import request
+from flask import redirect
 
 
 projects = Blueprint('projects', __name__, template_folder='templates')
@@ -22,9 +23,9 @@ def main():
         date = request.form['date']
         qualifications = request.form['qualifications']
         print date
-
-        models.Project(
-                owner=models.User.query().get().key,
+        
+        project = models.Project(
+                owner=(models.User.query().get().key),
                 team=(models.Team.query().get().key),
                 title=project_name,
                 description=project_description,
@@ -32,13 +33,12 @@ def main():
                 time_range=time,
                 location=location,
                 room_name=room_name,
-                status=models.STATUS_ACTIVE
+                status=models.STATUS_ACTIVE,
                 ).put()
-     
-        
-    project_list = models.Project.query()
-    print project_list
-    team_list = models.Team.query()
-
-    return render_template('projects.html', project_list=project_list, team_list=team_list)
+        return redirect('/project_owner/' + str(project.id()))
+    else:
+        project_list = models.Project.query()
+        team_list = models.Team.query()
+         
+        return render_template('projects.html', project_list=project_list, team_list=team_list)
 
