@@ -10,8 +10,8 @@ def run():
 def add_teams():
     models.Team(type='Eat24').put()
     models.Team(type='SeatMe').put()
-    models.Team(type='Yelp-Biz').put()
-    models.Team(type='Yelp-Consumer').put()
+    models.Team(type='Yelp Biz').put()
+    models.Team(type='Yelp Consumer').put()
 
 
 def add_attributes():

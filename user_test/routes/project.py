@@ -17,10 +17,11 @@ project = Blueprint('project', __name__, template_folder='templates')
 @login_required
 def main(project_id):
     project_details = ndb.Key('Project', project_id).get()
+
     return render_template(
         'project.html',
         project_details=project_details,
         attributes={"age": "31", "sex": "male"},
-        participants=[User(first_name="Kent", last_name="Wills", team=Team.query(Team.type == 'Yelp-Consumer').get().key)],
         user_photo_url=session['photo_url'],
+        participants=[User(first_name="Kent", last_name="Wills", team=Team.query(Team.type == 'Yelp Consumer').get().key)]
     )
