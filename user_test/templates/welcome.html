@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User First</title>
-  <link rel="stylesheet" type="text/css" href="style.css"/>
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
-  <link rel="stylesheet" type="text/css" href="css/bootstrap-social.css"/>
-  <link href='http://fonts.googleapis.com/css?family=Raleway:400,700,200,100,300,500,600,800,900' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,700italic,900,400italic,300italic' rel='stylesheet' type='text/css'>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script type="text/javascript" src="js/jquery.sticky.js"></script>
-  </head>
-  <body>
-<div class="container-fluid banner text-center" id="banner"> 
+
+{% extends "base_template.html" %}
+{% block content %}
+<div class="banner text-center" id="banner"> 
     <div class="row">
     <div class="col-md-12 line">
       <div class="modal fade in" id="myModal" role="dialog" style="display: block; ">
@@ -29,7 +15,7 @@
                 <div class="banner-text" id="bannertext">
           
           
-                  <img class="landingImg" src="images/yelp_ux_logo.jpg">
+                  <img class="landingImg" src="img/yelp_ux_logo.jpg">
 
                   <h3>HELP US PUT USERS FIRST</h3>
                   
@@ -55,11 +41,6 @@
   </div>
 
 <script src="js/bootstrap.min.js"></script> 
-<script src="js/typed.js" type="text/javascript"></script> 
-<script src="js/jquery.mixitup.js" type="text/javascript"></script> 
-<script type="text/javascript" src="js/jquery.countTo.js"></script> 
-<script type="text/javascript" src="js/jquery.waypoints.min.js"></script> 
-<script type="text/javascript" src="js/jquery.quovolver.js"></script>
 <script>
 $(function(){
     var windowH = $(window).height();
@@ -85,119 +66,5 @@ $(function(){
 
     })          
 });
-
-
-	
-	
-	
-	$(function(){
-  $('#galleryimg').mixItUp();
-});
-	/*$('.timer').each(count);*/
-	jQuery(function ($) {
-      // custom formatting example
-      $('.timer').data('countToOptions', {
-        formatter: function (value, options) {
-          return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
-        }
-      });
- 
-      // start all the timers
-      $('#gallery').waypoint(function() {
-    $('.timer').each(count);
-	});
- 
-      function count(options) {
-        var $this = $(this);
-        options = $.extend({}, options || {}, $this.data('countToOptions') || {});
-        $this.countTo(options);
-      }
-    });
-	
-	
-	 $('.quotes').quovolver({
-      equalHeight   : true
-    });
-	
-	
-	</script>
-<script>
-
-	$(document).ready(function () {
-
-		$(document).on("scroll", onScroll);
-
- 
-
-		$('a[href^="#"]').on('click', function (e) {
-
-			e.preventDefault();
-
-			$(document).off("scroll");
-
- 
-
-			$('a').each(function () {
-
-				$(this).removeClass('active');
-
-			})
-
-			$(this).addClass('active');
-
- 
-
-			var target = this.hash;
-
-			$target = $(target);
-
-			$('html, body').stop().animate({
-
-				'scrollTop': $target.offset().top
-
-			}, 500, 'swing', function () {
-
-				window.location.hash = target;
-
-				$(document).on("scroll", onScroll);
-
-			});
-
-		});
-
-	});
-
- 
-
-	function onScroll(event){
-
-		var scrollPosition = $(document).scrollTop();
-
-		$('.nav li a').each(function () {
-
-			var currentLink = $(this);
-
-			var refElement = $(currentLink.attr("href"));
-
-			if (refElement.position().top <= scrollPosition && refElement.position().top + refElement.height() > scrollPosition) {
-
-				$('.nav li a').removeClass("active");
-
-				currentLink.addClass("active");
-
-			}
-
-			else{
-
-				currentLink.removeClass("active");
-
-			}
-
-		});
-
-	}
-
-	</script>
-</body>
-</html>
-
+</script>
+{% endblock %}
