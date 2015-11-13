@@ -20,7 +20,8 @@ class Attribute(ndb.Model):
 
 
 class User(ndb.Model):
-    gplus_id = ndb.IntegerProperty()
+    gplus_id = ndb.StringProperty()
+    gplus_email = ndb.StringProperty()
     admin = ndb.IntegerProperty()  # 1=admin, 0=normal user.
     first_name = ndb.StringProperty()
     last_name = ndb.StringProperty()
@@ -33,7 +34,7 @@ class Project(ndb.Model):
     team = ndb.KeyProperty(kind="Team")
     title = ndb.StringProperty()
     description = ndb.StringProperty()
-    date_time = ndb.DateTimeProperty()
+    date = ndb.StringProperty()
     time_range = ndb.StringProperty()
     location = ndb.StringProperty()
     room_name = ndb.StringProperty()

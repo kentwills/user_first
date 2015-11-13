@@ -28,11 +28,11 @@ def main():
         qualifications = request.form['qualifications']
 
         project = models.Project(
-                owner=(models.User.query().get().key),
-                team=ndb.Key(models.Team, product_type),
+                owner=ndb.Key(models.User, session['user_id']),
+                team=ndb.Key(models.Team, int(product_type)),
                 title=project_name,
                 description=project_description,
-                date_time=datetime.datetime.strptime(date, '%m/%d/%Y'),
+                date=date,
                 time_range=time,
                 location=location,
                 room_name=room_name,

@@ -24,7 +24,7 @@
                         <br>Homepage wireframe prototype test</h3>
 
                         <p class="desc">140 New Montgomery
-                        <br>Wednesday, November 23, 9am-10am
+                        <br>11/23/2015, 9am-10am
                         <br>Soccer Field@13 Floor</p>
                         <br>
                         <br>
@@ -71,17 +71,15 @@
             <div class="row">
                 <div class="col-xs-6 text-left">
                     <div class="service-box">
-                        <h1 class="section-heading">EAT24</h1>
+                        <h3 class="text-uppercase"><span class="section-heading">EAT24</span>
 
-                        <h2>{{ project_details.title }}</h2>
+                        <br>{{ project_details.title }}</h3>
+                        <p class="desc">{{ project_details.location }}
+                        <br>{{ project_details.date }}, {{ project_details.time_range}}
+                        <br>{{ project_details.room_name }}</p>
                         <br>
-
-                        <p>{{ project_details.date }}</p>
-
-                        <p>{{ project_details.location }}</p>
                         <br>
                         <strong>Description</strong>
-
                         <p>{{ project_details.description}}</p>
                         <br>
                         <strong>Pre-reqs</strong>
@@ -91,14 +89,20 @@
                 </div>
                 <div class="col-xs-6 text-left">
                     <div class="service-box">
-                        <h3>Are you interested?</h3>
-                        <button type="button" class="btn btn-primary btn-lg active">Participate</button>
+                        <h3 class="text-center">Are you interested?</h3>
+                        <button class="btn btn-warning">Participate</button>
                         <h3>{{ participants|length }} Participating</h3>
-
-                        {% for participant in participants %}
-                            <p>{{ participant.first_name + " " + participant.last_name }}</p>
-                            <p>{{ participant.team.type }}</p>
-                        {% endfor %}
+                         <ul class="list-group list1">
+                            {% for participant in participants %}
+                                <li class="list-group-item">
+                                    <div>
+                                        <span class="navbar-button pull-left"><img src={{user_photo_url}} class="img-circle" width="50px"/></span>
+                                        <a href="#">{{ participant.first_name + " " + participant.last_name }}</a>
+                                        <br>YELP
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
                     </div>
                 </div>
             </div>

@@ -33,7 +33,8 @@ href="https://code.google.com/apis/console">APIs Console</a>.
 
 oauth2_decorator = appengine.oauth2decorator_from_clientsecrets(
     CLIENT_SECRETS,
-    scope='https://www.googleapis.com/auth/plus.me',
+    #scope='https://www.googleapis.com/auth/plus.me',
+    scope=['https://www.googleapis.com/auth/plus.me', 'https://www.googleapis.com/auth/userinfo.email'],
     message=MISSING_CLIENT_SECRETS_MESSAGE,
 )
 
