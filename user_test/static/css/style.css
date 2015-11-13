@@ -6,6 +6,9 @@
 	padding: 0px;
 	margin: 0px;
 }
+.container-fluid{
+	padding: 0px !important;
+}
 .banner
 {
 	/*background-color: #341F48;*/
