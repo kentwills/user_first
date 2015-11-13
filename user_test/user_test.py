@@ -6,7 +6,7 @@ import jinja2
 from flask import Flask
 from routes.sign import sign
 from routes.main import main
-#from routes.project import project
+from routes.project import project
 
 from googleapiclient import discovery
 from oauth2client import appengine
@@ -20,7 +20,7 @@ sys.path.insert(1, os.path.join(os.path.abspath('.'), 'lib'))
 app = Flask(__name__)
 app.register_blueprint(main)
 app.register_blueprint(sign)
-#app.register_blueprint(project)
+app.register_blueprint(project)
 
 app.debug = True
 
