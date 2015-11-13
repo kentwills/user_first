@@ -28,8 +28,8 @@ def main():
         qualifications = request.form['qualifications']
 
         project = models.Project(
-                owner=models.User.query().get().key,
-                team=ndb.Key(models.Team, product_type),
+                owner=ndb.Key(models.User, session['user_id']),
+                team=ndb.Key(models.Team, int(product_type)),
                 title=project_name,
                 description=project_description,
                 date=date,

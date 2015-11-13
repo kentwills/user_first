@@ -84,9 +84,11 @@ def goog_auth_response_page():
                     team=Team.query(Team.type == 'Yelp Consumer').get().key
                 )
                 new_user_key = new_user.put()
+                session["user_id"] = new_user_key.id()
                 # REDIR to fill_out_your_info or project page?
                 return redirect(flask.url_for('projects.main'))
             else:
+                session["user_id"] = stored_user.key.id()
                 # User exists! Show project page (or fill_out_info if missing info?).
                 return redirect(flask.url_for('projects.main'))
 
