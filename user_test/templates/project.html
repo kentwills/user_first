@@ -90,7 +90,7 @@
                 <div class="col-xs-6 text-left">
                     <div class="service-box">
                         <h3 class="text-center">Are you interested?</h3>
-                        <button class="btn btn-warning" onclick="location.href='{{ url_for('project.main', project_id=project_id)}}'">Participate</button>
+                        <button class="btn btn-warning" onclick="location.href='{{ url_for('project.participate', project_id=project_id)}}'">Participate</button>
                         <h3>{{ participants|length }} Participating</h3>
                          <ul class="list-group list1">
                             {% for participant in participants %}

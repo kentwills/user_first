@@ -4,9 +4,11 @@ from flask import request
 from flask import session
 from flask import redirect
 import models
-from google.appengine.ext import ndb
 from models import User
 from models import Team
+from models import ProjectUsers
+
+from google.appengine.ext import ndb
 
 from route_utils import login_required
 
@@ -30,10 +32,12 @@ def main(project_id):
         participants=[User(first_name="Kent", last_name="Wills", team=Team.query(Team.type == 'Yelp Consumer').get().key)]
     )
 
-@project.route('/project/<int:project_id>/participate', methods=['POST'])
+@project.route('/project/<int:project_id>/participate', methods=['GET'])
 @login_required
 def participate(project_id):
-    project_users = ProjectUsers(project=project_id, status=model.STATUS_ACTIVE).fetch()
+    project_users = ProjectUsers.query(ProjectUsers.project==ndb.Key(models.Project, project_id),
+            ProjectUsers.status==models.STATUS_ACTIVE).fetch()
+    print project_users
     current_user_id = session['user_id']
     project_record = None
 
@@ -41,14 +45,14 @@ def participate(project_id):
         if record.user.id() == current_user_id:
             project_record = record
             break
-
+    
     if project_record is None:
         # User is not already participating, add that record to the database
-        ProjectUsers(user=nbd.Key(models.User, current_user_id),
-                project=project_id, status=model.STATUS_ACTIVE).put()
+        ProjectUsers(user=ndb.Key(models.User, current_user_id),
+                project=ndb.Key(models.Project, project_id), status=models.STATUS_ACTIVE).put()
     else:
         # User is participating, issue a delete.
-        ProjectUsers(user=current_user.key.id(),
-                project=project_id, status=model.STATUS_DEACTIVE).put()
+        models.ProjectUsers(user=current_user.key.id(),
+                project=project_id, status=models.STATUS_DEACTIVE).put()
 
     return redirect('/project/' + str(project_id))
