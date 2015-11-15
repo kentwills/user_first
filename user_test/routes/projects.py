@@ -39,14 +39,21 @@ def main():
                 status=models.STATUS_ACTIVE,
                 qualifications=qualifications
                 ).put()
+
         return redirect('/project_owner/' + str(project.id()))
     else:
         project_list = models.Project.query().fetch()
         team_list = models.Team.query().fetch()
 
+        teams = {}
+        for project in project_list:
+            teams[project.team.id()] = models.Team.get_by_id(int(project.team.id()))
+        print(teams)
+
         return render_template(
             'projects.html',
             project_list=project_list,
             team_list=team_list,
+            teams=teams,
             user_photo_url=session['photo_url'],
         )

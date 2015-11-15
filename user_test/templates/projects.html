@@ -35,13 +35,13 @@
 
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h2>{{ project.title }}</h2>
+                                <h2>{{ teams[project.team.id()].type.upper() }}</h2>
                             </div>
                             <div class="panel-body">
-                                <p class="lead">Homepage Wireframe prototype test</p>
+                                <p class="lead">{{ project.title }}</p>
 
-                                <p>{{ project.date }}, {{ project.time_range}}
-                                  <br>{{ project.location }}</p>
+                                <p>{{ project.date }} {{ project.time_range }}<br>
+                                    {{ project.location }} {{ project.room_name }}</p>
 
                                 <p><a href={{"/project/{}".format(project.key.id()) }}>Click to learn more</a></p>
                             </div>
