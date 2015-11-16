@@ -89,15 +89,21 @@
                 </div>
                 <div class="col-xs-6 text-left">
                     <div class="service-box">
+
+                        {% if current_user_project_record %}
+                        <button class="btn btn-success" onclick="location.href='{{ url_for('project.participate', project_id=project_id)}}'">Participating</button>
+                        {% else %}
                         <h3 class="text-center">Are you interested?</h3>
                         <button class="btn btn-warning" onclick="location.href='{{ url_for('project.participate', project_id=project_id)}}'">Participate</button>
+                        {% endif %}
+
                         <h3>{{ participants|length }} Participating</h3>
                          <ul class="list-group list1">
                             {% for participant in participants %}
                                 <li class="list-group-item">
                                     <div>
                                         <span class="navbar-button pull-left"><img src={{user_photo_url}} class="img-circle" width="50px"/></span>
-                                        <a href="#">{{ participant.first_name + " " + participant.last_name }}</a>
+                                        {{ participant.first_name + " " + participant.last_name }}
                                         <br>YELP
                                     </div>
                                 </li>
@@ -117,17 +123,8 @@
 {% include 'footer.html' %}
 
 
-<!-- Bootstrap Core JavaScript -->
 <script src="/js/bootstrap.min.js"></script>
 
-<!-- Plugin JavaScript
-<script src="js/jquery.easing.min.js"></script>
-<script src="js/jquery.fittext.js"></script>
-<script src="js/wow.min.js"></script>-->
-
-<!-- Custom Theme JavaScript
-<script src="js/creative.js"></script>
--->
 
 {% endblock %}
 {% endblock %}

@@ -1,6 +1,4 @@
 import models
-import pprint
-import datetime
 
 from flask import Blueprint, render_template, abort
 from flask import request
@@ -48,7 +46,6 @@ def main():
         teams = {}
         for project in project_list:
             teams[project.team.id()] = models.Team.get_by_id(int(project.team.id()))
-        print(teams)
 
         return render_template(
             'projects.html',

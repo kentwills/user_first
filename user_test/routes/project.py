@@ -1,11 +1,8 @@
 from flask import Blueprint
 from flask import render_template
-from flask import request
 from flask import session
 from flask import redirect
 import models
-from models import User
-from models import Team
 from models import ProjectUsers
 from google.appengine.ext import ndb
 from route_utils import login_required
@@ -21,13 +18,27 @@ def main(project_id):
     if session['user_id'] == project_details.owner.id():
         return redirect('/project_owner/' + str(project_id))
 
+    userid = session['user_id']
+    current_user_project_record = ProjectUsers.query(
+        ProjectUsers.project == ndb.Key('Project', project_id),
+        ProjectUsers.user == ndb.Key('User', userid)
+    ).get()
+
+    project_users = models.ProjectUsers.query(
+        models.ProjectUsers.project == ndb.Key('Project', project_id)
+    ).fetch()
+
+    participants = []
+    for project_user in project_users:
+        participants.append(project_user.user.get())
+
     return render_template(
         'project.html',
         project_details=project_details,
         project_id=project_id,
         user_photo_url=session['photo_url'],
-        participants=[
-            User(first_name="Kent", last_name="Wills", team=Team.query(Team.type == 'Yelp Consumer').get().key)]
+        participants=participants,
+        current_user_project_record=current_user_project_record
     )
 
 
@@ -35,31 +46,21 @@ def main(project_id):
 @login_required
 def participate(project_id):
 
-    project_users = ProjectUsers.query(
-        ProjectUsers.project == ndb.Key(models.Project, project_id),
-        ProjectUsers.status == models.STATUS_ACTIVE
-    ).fetch()
+    userid = session['user_id']
+    current_user_project_record = ProjectUsers.query(
+        ProjectUsers.project == ndb.Key('Project', project_id),
+        ProjectUsers.user == ndb.Key('User', userid)
+    ).get()
 
-    current_user_id = session['user_id']
-    project_record = None
-
-    for record in project_users:
-        if record.user.id() == current_user_id:
-            project_record = record
-            break
-
-    if project_record is None:
+    if current_user_project_record is None:
         # User is not already participating, add that record to the database
         ProjectUsers(
-            user=ndb.Key(models.User, current_user_id),
+            user=ndb.Key(models.User, userid),
             project=ndb.Key(models.Project, project_id),
             status=models.STATUS_ACTIVE
         ).put()
     else:
         # User is participating, issue a delete.
-        models.ProjectUsers(
-            user=current_user.key.id(),
-            project=project_id, status=models.STATUS_DEACTIVE
-        ).put()
+        current_user_project_record.key.delete()
 
     return redirect('/project/' + str(project_id))

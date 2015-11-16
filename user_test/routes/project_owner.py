@@ -16,12 +16,19 @@ project_owner = Blueprint('project_owner', __name__, template_folder='templates'
 def main(project_id):
     project_details = ndb.Key('Project', project_id).get()
     team = ndb.Key('Team', int(project_details.team.id())).get()
+
+    project_users = models.ProjectUsers.query(
+        models.ProjectUsers.project == ndb.Key('Project', project_id)
+    ).fetch()
+
+    participants = []
+    for project_user in project_users:
+        participants.append(project_user.user.get())
+
     return render_template(
         'project_owner.html',
         project_details=project_details,
-        attributes={"age": "31", "sex": "male"},
-        participants=[
-            User(first_name="Kent", last_name="Wills", team=Team.query(Team.type == 'Yelp Consumer').get().key)],
+        participants=participants,
         team=team,
         user_photo_url=session['photo_url'],
         project_id=project_id,
