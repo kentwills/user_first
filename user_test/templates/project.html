@@ -102,7 +102,7 @@
                             {% for participant in participants %}
                                 <li class="list-group-item">
                                     <div>
-                                        <span class="navbar-button pull-left"><img src={{user_photo_url}} class="img-circle" width="50px"/></span>
+                                        <span class="navbar-button pull-left"><img src={{ participant.photo_url }} class="img-circle" width="50px"/></span>
                                         {{ participant.first_name + " " + participant.last_name }}
                                         <br>YELP
                                     </div>
