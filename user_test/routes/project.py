@@ -42,7 +42,7 @@ def main(project_id):
     )
 
 
-@project.route('/project/<int:project_id>/participate', methods=['GET'])
+@project.route('/project/<int:project_id>/participate', methods=['POST'])
 @login_required
 def participate(project_id):
 
@@ -57,7 +57,7 @@ def participate(project_id):
         ProjectUsers(
             user=ndb.Key(models.User, userid),
             project=ndb.Key(models.Project, project_id),
-            status=models.STATUS_ACTIVE
+            status=models.STATUS_USER_PROJECT_APPLIED
         ).put()
     else:
         # User is participating, issue a delete.

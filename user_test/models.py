@@ -1,7 +1,12 @@
 from google.appengine.ext import ndb
 
+
 STATUS_ACTIVE = 1;
 STATUS_DEACTIVE = 0;
+
+STATUS_USER_PROJECT_DENIED = 0
+STATUS_USER_PROJECT_APPLIED = 1
+STATUS_USER_PROJECT_APPROVED = 2
 
 
 class ProjectAttribute(ndb.Model):

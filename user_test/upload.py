@@ -23,7 +23,7 @@ def add_attributes():
 
 def add_project():
 
-    models.User(token=12342341, admin=1, first_name='Kent', last_name='Wills').put()
+    models.User(admin=1, first_name='Kent', last_name='Wills', gplus_email='rkwills@yelp.com').put()
     team = models.Team.query().get().key
     user = models.User.query().get().key
 
@@ -38,6 +38,7 @@ def add_project():
 
 
 def delete_all():
+    ndb.delete_multi(models.User.query().fetch(keys_only=True))
     ndb.delete_multi(models.Project.query().fetch(keys_only=True))
     ndb.delete_multi(models.Team.query().fetch(keys_only=True))
     ndb.delete_multi(models.ProjectUsers.query().fetch(keys_only=True))

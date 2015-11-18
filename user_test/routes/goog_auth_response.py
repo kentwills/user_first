@@ -49,6 +49,7 @@ def goog_auth_response_page():
         # Check if we have user, or make new user.
         gplus_id = int(credentials.id_token['sub'])
         gplus_email = str(credentials.id_token['email'])
+
         if gplus_email.find('@yelp.com') == -1:
             return "You must use a @yelp.com email."
 

@@ -179,91 +179,56 @@
             <div class="service-box">
                 <h3>Waiting to be approved</h3>
                 <ul class="list-group">
-                    <li class="list-group-item">
-                        <span class="navbar-button"><img src="/img/bowtie_cat.jpeg" class="img-circle"
-                                                         width="50px"/></span>
-                        <a href="#"> Kent Wills</a>
+                    {% for participant in participants_applied %}
+                        <li class="list-group-item">
+                            <span class="navbar-button">
+                              <img src="{{ participant.photo_url if participant.photo_url else '/img/bowtie_cat.jpeg' }}" class="img-circle" width="50px"/>
+                            </span>
 
-                        <div class="btn-group pull-right" role="group">
-                            <button type="button" class="btn btn-default">Yes</button>
-                            <button type="button" class="btn btn-default">No</button>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="navbar-button"><img src="/img/bowtie_cat.jpeg" class="img-circle"
-                                                         width="50px"/></span>
-                        <a href="#"> Wolfe Styke</a>
+                            <a href="#"> {{ participant.first_name + " " + participant.last_name }} </a>
 
-                        <div class="btn-group pull-right" role="group">
-                            <button type="button" class="btn btn-default">Yes</button>
-                            <button type="button" class="btn btn-default">No</button>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="navbar-button"><img src="/img/bowtie_cat.jpeg" class="img-circle"
-                                                         width="50px"/></span>
-                        <a href="#"> Maggie Nan</a>
-
-                        <div class="btn-group pull-right" role="group">
-                            <button type="button" class="btn btn-default">Yes</button>
-                            <button type="button" class="btn btn-default">No</button>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <span class="navbar-button"><img src="/img/bowtie_cat.jpeg" class="img-circle"
-                                                         width="50px"/></span>
-                        <a href="#"> Tiffany Ko</a>
-
-                        <div class="btn-group pull-right" role="group">
-                            <button type="button" class="btn btn-default">Yes</button>
-                            <button type="button" class="btn btn-default">No</button>
-                        </div>
-                    </li>
+                            <div class="btn-group pull-right" role="group">
+                              <button type="button" onclick="$.post(window.location.origin + '/project_owner/{{project_id}}/approve_user/{{participant.key.id()}}'); setTimeout(function() {window.location.reload();}, 500);" class="btn btn-default">Yes</button>
+                              <button type="button" onclick="$.post(window.location.origin + '/project_owner/{{project_id}}/deny_user/{{participant.key.id()}}'); setTimeout(function() {window.location.reload();}, 500);" class="btn btn-default">No</button>
+                            </div>
+                        </li>
+                    {% endfor %}
                 </ul>
+
                 <h3>Approved Users</h3>
 
                 <ul class="list-group list1">
-                    <li class="list-group-item">
-                        <div>
-                            <span class="navbar-button pull-left"><img src="/img/bowtie_cat.jpeg" class="img-circle"
-                                                                       width="50px"/></span>
-                            <a href="#"> Jonathan Maltz</a>
-                            <br>EAT24
-                            <p class="statusA">APPROVED</p>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div>
-                            <span class="navbar-button pull-left"><img src="/img/bowtie_cat.jpeg" class="img-circle"
-                                                                       width="50px"/></span>
-                            <a href="#"> Lindsay Lienson</a>
-                            <br>YELP Consumer
-                            <p class="statusA">APPROVED</p>
-                        </div>
-                    </li>
+                    {% for participant in participants_approved %}
+                        <li class="list-group-item">
+                            <div>
+                                <span class="navbar-button pull-left">
+                                  <!--img src="/img/bowtie_cat.jpeg" class="img-circle" width="50px"/-->
+                                  <img src="{{ participant.photo_url if participant.photo_url else '/img/bowtie_cat.jpeg' }}" class="img-circle" width="50px"/>
+                                </span>
+                                <a href="#"> {{ participant.first_name + " " + participant.last_name }} </a>
+                                <br> {{participant.gplus_email}}
+                                <p class="statusA">APPROVED</p>
+                            </div>
+                        </li>
+                    {% endfor %}
                 </ul>
 
                 <h3>Denied Users</h3>
 
                 <ul class="list-group list1">
-                    <li class="list-group-item">
-                        <div>
-                            <span class="navbar-button pull-left"><img src="/img/bowtie_cat.jpeg" class="img-circle"
-                                                                       width="50px"/></span>
-                            <a href="#"> Silas Godfrey</a>
-                            <br>SEATME
-                            <p class="statusD">DENIED</p>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div>
-                            <span class="navbar-button pull-left"><img src="/img/bowtie_cat.jpeg" class="img-circle"
-                                                                       width="50px"/></span>
-                            <a href="#"> Homer Simpson</a>
-                            <br>EAT24
-                            <p class="statusD">DENIED</p>
-                        </div>
-                    </li>
+                    {% for participant in participants_denied %}
+                        <li class="list-group-item">
+                            <div>
+                                <span class="navbar-button pull-left">
+                                  <!--img src="/img/bowtie_cat.jpeg" class="img-circle" width="50px"/-->
+                                  <img src="{{ participant.photo_url if participant.photo_url else '/img/bowtie_cat.jpeg' }}" class="img-circle" width="50px"/>
+                                </span>
+                                <a href="#"> {{ participant.first_name + " " + participant.last_name }} </a>
+                                <br> {{participant.gplus_email}}
+                                <p class="statusD">DENIED</p>
+                            </div>
+                        </li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
