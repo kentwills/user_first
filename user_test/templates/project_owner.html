@@ -185,7 +185,7 @@
                               <img src="{{ participant.photo_url if participant.photo_url else '/img/bowtie_cat.jpeg' }}" class="img-circle" width="50px"/>
                             </span>
 
-                            <a href="#"> {{ participant.first_name + " " + participant.last_name }} </a>
+                            <a href="mailto:{{ participant.gplus_email }}"> {{ participant.first_name + " " + participant.last_name if participant.first_name and participant.last_name else participant.gplus_email }} </a>
 
                             <div class="btn-group pull-right" role="group">
                               <button type="button" onclick="$.post(window.location.origin + '/project_owner/{{project_id}}/approve_user/{{participant.key.id()}}'); setTimeout(function() {window.location.reload();}, 500);" class="btn btn-default">Yes</button>
@@ -202,10 +202,9 @@
                         <li class="list-group-item">
                             <div>
                                 <span class="navbar-button pull-left">
-                                  <!--img src="/img/bowtie_cat.jpeg" class="img-circle" width="50px"/-->
                                   <img src="{{ participant.photo_url if participant.photo_url else '/img/bowtie_cat.jpeg' }}" class="img-circle" width="50px"/>
                                 </span>
-                                <a href="#"> {{ participant.first_name + " " + participant.last_name }} </a>
+                                <a href="mailto:{{ participant.gplus_email }}"> {{ participant.first_name + " " + participant.last_name if participant.first_name and participant.last_name else participant.gplus_email }} </a>
                                 <br> {{participant.gplus_email}}
                                 <p class="statusA">APPROVED</p>
                             </div>
@@ -220,10 +219,9 @@
                         <li class="list-group-item">
                             <div>
                                 <span class="navbar-button pull-left">
-                                  <!--img src="/img/bowtie_cat.jpeg" class="img-circle" width="50px"/-->
                                   <img src="{{ participant.photo_url if participant.photo_url else '/img/bowtie_cat.jpeg' }}" class="img-circle" width="50px"/>
                                 </span>
-                                <a href="#"> {{ participant.first_name + " " + participant.last_name }} </a>
+                                <a href="mailto:{{ participant.gplus_email }}"> {{ participant.first_name + " " + participant.last_name if participant.first_name and participant.last_name else participant.gplus_email }} </a>
                                 <br> {{participant.gplus_email}}
                                 <p class="statusD">DENIED</p>
                             </div>

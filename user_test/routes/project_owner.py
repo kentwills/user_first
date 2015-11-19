@@ -22,6 +22,10 @@ project_owner = Blueprint('project_owner', __name__, template_folder='templates'
 @login_required
 def main(project_id):
     project_details = ndb.Key('Project', project_id).get()
+
+    if session['user_id'] != project_details.owner.id():
+        return redirect('/project/' + str(project_id))
+
     team = ndb.Key('Team', int(project_details.team.id())).get()
 
     project_users = models.ProjectUsers.query(

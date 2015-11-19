@@ -15,6 +15,7 @@ project = Blueprint('project', __name__, template_folder='templates')
 def main(project_id):
     project_details = ndb.Key('Project', project_id).get()
     # If the user is the owner of this event, then redirect to the owner page.
+
     if session['user_id'] == project_details.owner.id():
         return redirect('/project_owner/' + str(project_id))
 
