@@ -92,7 +92,7 @@
 
                         {% if current_user_project_record %}
                         <h3 class="">Thanks for signing up, look for an email to confirm!</h3>
-                        <button class="btn btn-success" onclick="$.post('{{ url_for('project.participate', project_id=project_id)}}'); setTimeout(function() {window.location.reload();}, 500);">Stop Participating</button>
+                        <button class="btn btn-warning" id="stop" onclick="$.post('{{ url_for('project.participate', project_id=project_id)}}'); setTimeout(function() {window.location.reload();}, 500);">Stop Participating</button>
                         {% else %}
                         <h3 class="text-center">Are you interested?</h3>
                         <button class="btn btn-warning" onclick="$.post('{{ url_for('project.participate', project_id=project_id)}}'); setTimeout(function() {window.location.reload();}, 500);">Participate</button>
